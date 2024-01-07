@@ -52,6 +52,7 @@
             this.companyLogoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyTickerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataBrokerDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBrokerDatabaseDataSet)).BeginInit();
             this.panel1.SuspendLayout();
@@ -113,9 +114,9 @@
             this.Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Address.Location = new System.Drawing.Point(632, 38);
             this.Address.Name = "Address";
-            this.Address.Size = new System.Drawing.Size(134, 20);
+            this.Address.Size = new System.Drawing.Size(75, 20);
             this.Address.TabIndex = 6;
-            this.Address.Text = "Company Name";
+            this.Address.Text = "Address";
             // 
             // txtAddress
             // 
@@ -133,9 +134,11 @@
             this.Search.TabIndex = 8;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.Address);
             this.panel1.Controls.Add(this.Search);
             this.panel1.Controls.Add(this.label1);
@@ -255,6 +258,17 @@
             this.companyTickerDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.companyTickerDataGridViewTextBoxColumn.Name = "companyTickerDataGridViewTextBoxColumn";
             // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(1131, 29);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(90, 34);
+            this.btnClear.TabIndex = 9;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,6 +315,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn companyLogoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn companyTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn companyTickerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 

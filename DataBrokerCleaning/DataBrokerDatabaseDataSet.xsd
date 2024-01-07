@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataBrokerDatabaseDataSet" targetNamespace="http://tempuri.org/DataBrokerDatabaseDataSet.xsd" xmlns:mstns="http://tempuri.org/DataBrokerDatabaseDataSet.xsd" xmlns="http://tempuri.org/DataBrokerDatabaseDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DataBrokerDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DataBrokerDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataBrokerCleaning.Properties.Settings.GlobalReference.Default.DataBrokerDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataBrokerDetailsTableAdapter" GeneratorDataComponentClassName="DataBrokerDetailsTableAdapter" Name="DataBrokerDetails" UserDataComponentName="DataBrokerDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DataBrokerDatabaseConnectionString (Settings)" DbObjectName="DataBrokerDatabase.dbo.DataBrokerDetails" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[DataBrokerDetails] ([Domain], [Emails], [Company Name], [Privacy Policy URL], [Credit Bureau], [Phone Numbers], [Address], [Health], [Company Legal Name], [Company Domain], [Company Domain Aliases], [Company Url], [Company Site Phone Numbers], [Company Site Email Addresses], [Company Category Sector], [Company Category Industry Group], [Company Category Industry], [Company Category Sub Industry], [Company Category Sic Code], [Company Category Naics Code], [Company Tags], [Company Description], [Company Founded Year], [Company Location], [Company Time Zone], [Company Utc Offset], [Company Geo Street Number], [Company Geo Street Name], [Company Geo Sub Premise], [Company Geo City], [Company Geo Postal Code], [Company Geo State], [Company Geo State Code], [Company Geo Country], [Company Geo Country Code], [Company Geo Lat], [Company Geo Lng], [Company Logo], [Company Facebook Handle], [Company Linkedin Handle], [Company Twitter Handle], [Company Twitter Id], [Company Twitter Bio], [Company Twitter Followers], [Company Twitter Following], [Company Twitter Location], [Company Twitter Site], [Company Twitter Avatar], [Company Crunchbase Handle], [Company Type], [Company Ticker], [Company Identifiers Us Ein], [Company Phone], [Company Metrics Alexa Us Rank], [Company Metrics Alexa Global Rank], [Company Metrics Employees], [Company Metrics Employees Range], [Company Metrics Market Cap], [Company Metrics Raised], [Company Metrics Annual Revenue], [Company Metrics Estimated Annual Revenue], [Company Metrics Fiscal Year End], [Company Tech], [Company Parent Domain], [YDR URL]) VALUES (@Domain, @Emails, @Company_Name, @Privacy_Policy_URL, @Credit_Bureau, @Phone_Numbers, @Address, @Health, @Company_Legal_Name, @Company_Domain, @Company_Domain_Aliases, @Company_Url, @Company_Site_Phone_Numbers, @Company_Site_Email_Addresses, @Company_Category_Sector, @Company_Category_Industry_Group, @Company_Category_Industry, @Company_Category_Sub_Industry, @Company_Category_Sic_Code, @Company_Category_Naics_Code, @Company_Tags, @Company_Description, @Company_Founded_Year, @Company_Location, @Company_Time_Zone, @Company_Utc_Offset, @Company_Geo_Street_Number, @Company_Geo_Street_Name, @Company_Geo_Sub_Premise, @Company_Geo_City, @Company_Geo_Postal_Code, @Company_Geo_State, @Company_Geo_State_Code, @Company_Geo_Country, @Company_Geo_Country_Code, @Company_Geo_Lat, @Company_Geo_Lng, @Company_Logo, @Company_Facebook_Handle, @Company_Linkedin_Handle, @Company_Twitter_Handle, @Company_Twitter_Id, @Company_Twitter_Bio, @Company_Twitter_Followers, @Company_Twitter_Following, @Company_Twitter_Location, @Company_Twitter_Site, @Company_Twitter_Avatar, @Company_Crunchbase_Handle, @Company_Type, @Company_Ticker, @Company_Identifiers_Us_Ein, @Company_Phone, @Company_Metrics_Alexa_Us_Rank, @Company_Metrics_Alexa_Global_Rank, @Company_Metrics_Employees, @Company_Metrics_Employees_Range, @Company_Metrics_Market_Cap, @Company_Metrics_Raised, @Company_Metrics_Annual_Revenue, @Company_Metrics_Estimated_Annual_Revenue, @Company_Metrics_Fiscal_Year_End, @Company_Tech, @Company_Parent_Domain, @YDR_URL)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Domain" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Domain" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Emails" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Emails" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Privacy_Policy_URL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Privacy Policy URL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Credit_Bureau" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Credit Bureau" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Phone_Numbers" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Phone Numbers" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Health" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Health" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Legal_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Legal Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Domain" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Domain" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Domain_Aliases" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Domain Aliases" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Url" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Url" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Site_Phone_Numbers" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Site Phone Numbers" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Site_Email_Addresses" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Site Email Addresses" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Category_Sector" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Category Sector" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Category_Industry_Group" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Category Industry Group" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Category_Industry" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Category Industry" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Category_Sub_Industry" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Category Sub Industry" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Category_Sic_Code" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Category Sic Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Category_Naics_Code" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Category Naics Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Tags" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Tags" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Description" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Founded_Year" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Founded Year" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Location" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Location" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Time_Zone" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Time Zone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Utc_Offset" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Utc Offset" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Geo_Street_Number" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Geo Street Number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Geo_Street_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Geo Street Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Geo_Sub_Premise" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Geo Sub Premise" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Geo_City" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Geo City" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Geo_Postal_Code" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Geo Postal Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Geo_State" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Geo State" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Geo_State_Code" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Geo State Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Geo_Country" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Geo Country" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Geo_Country_Code" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Geo Country Code" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Geo_Lat" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Geo Lat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Geo_Lng" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Geo Lng" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Logo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Logo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Facebook_Handle" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Facebook Handle" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Linkedin_Handle" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Linkedin Handle" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Twitter_Handle" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Twitter Handle" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Twitter_Id" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Twitter Id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Twitter_Bio" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Twitter Bio" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Twitter_Followers" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Twitter Followers" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Twitter_Following" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Twitter Following" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Twitter_Location" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Twitter Location" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Twitter_Site" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Twitter Site" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Twitter_Avatar" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Twitter Avatar" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Crunchbase_Handle" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Crunchbase Handle" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Ticker" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Ticker" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Identifiers_Us_Ein" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Identifiers Us Ein" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Phone" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Phone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Metrics_Alexa_Us_Rank" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Metrics Alexa Us Rank" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Metrics_Alexa_Global_Rank" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Metrics Alexa Global Rank" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Metrics_Employees" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Metrics Employees" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Company_Metrics_Employees_Range" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="Company Metrics Employees Range" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Metrics_Market_Cap" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Metrics Market Cap" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Company_Metrics_Raised" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Company Metrics Raised" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Metrics_Annual_Revenue" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Metrics Annual Revenue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Metrics_Estimated_Annual_Revenue" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Metrics Estimated Annual Revenue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Metrics_Fiscal_Year_End" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Metrics Fiscal Year End" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Tech" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Tech" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Company_Parent_Domain" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Company Parent Domain" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@YDR_URL" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="YDR URL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Domain, Emails, [Company Name], [Privacy Policy URL], [Credit Bureau], [Phone Numbers], Address, Health, [Company Legal Name], [Company Domain], [Company Domain Aliases], [Company Url], [Company Site Phone Numbers], [Company Site Email Addresses], [Company Category Sector], [Company Category Industry Group], [Company Category Industry], [Company Category Sub Industry], [Company Category Sic Code], [Company Category Naics Code], [Company Tags], [Company Description], [Company Founded Year], [Company Location], [Company Time Zone], [Company Utc Offset], [Company Geo Street Number], [Company Geo Street Name], [Company Geo Sub Premise], [Company Geo City], [Company Geo Postal Code], [Company Geo State], [Company Geo State Code], [Company Geo Country], [Company Geo Country Code], [Company Geo Lat], [Company Geo Lng], [Company Logo], [Company Facebook Handle], [Company Linkedin Handle], [Company Twitter Handle], [Company Twitter Id], [Company Twitter Bio], [Company Twitter Followers], [Company Twitter Following], [Company Twitter Location], [Company Twitter Site], [Company Twitter Avatar], [Company Crunchbase Handle], [Company Type], [Company Ticker], [Company Identifiers Us Ein], [Company Phone], [Company Metrics Alexa Us Rank], [Company Metrics Alexa Global Rank], [Company Metrics Employees], [Company Metrics Employees Range], [Company Metrics Market Cap], [Company Metrics Raised], [Company Metrics Annual Revenue], [Company Metrics Estimated Annual Revenue], [Company Metrics Fiscal Year End], [Company Tech], [Company Parent Domain], [YDR URL] FROM dbo.DataBrokerDetails</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Domain" DataSetColumn="Domain" />
+              <Mapping SourceColumn="Emails" DataSetColumn="Emails" />
+              <Mapping SourceColumn="Company Name" DataSetColumn="Company Name" />
+              <Mapping SourceColumn="Privacy Policy URL" DataSetColumn="Privacy Policy URL" />
+              <Mapping SourceColumn="Credit Bureau" DataSetColumn="Credit Bureau" />
+              <Mapping SourceColumn="Phone Numbers" DataSetColumn="Phone Numbers" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Health" DataSetColumn="Health" />
+              <Mapping SourceColumn="Company Legal Name" DataSetColumn="Company Legal Name" />
+              <Mapping SourceColumn="Company Domain" DataSetColumn="Company Domain" />
+              <Mapping SourceColumn="Company Domain Aliases" DataSetColumn="Company Domain Aliases" />
+              <Mapping SourceColumn="Company Url" DataSetColumn="Company Url" />
+              <Mapping SourceColumn="Company Site Phone Numbers" DataSetColumn="Company Site Phone Numbers" />
+              <Mapping SourceColumn="Company Site Email Addresses" DataSetColumn="Company Site Email Addresses" />
+              <Mapping SourceColumn="Company Category Sector" DataSetColumn="Company Category Sector" />
+              <Mapping SourceColumn="Company Category Industry Group" DataSetColumn="Company Category Industry Group" />
+              <Mapping SourceColumn="Company Category Industry" DataSetColumn="Company Category Industry" />
+              <Mapping SourceColumn="Company Category Sub Industry" DataSetColumn="Company Category Sub Industry" />
+              <Mapping SourceColumn="Company Category Sic Code" DataSetColumn="Company Category Sic Code" />
+              <Mapping SourceColumn="Company Category Naics Code" DataSetColumn="Company Category Naics Code" />
+              <Mapping SourceColumn="Company Tags" DataSetColumn="Company Tags" />
+              <Mapping SourceColumn="Company Description" DataSetColumn="Company Description" />
+              <Mapping SourceColumn="Company Founded Year" DataSetColumn="Company Founded Year" />
+              <Mapping SourceColumn="Company Location" DataSetColumn="Company Location" />
+              <Mapping SourceColumn="Company Time Zone" DataSetColumn="Company Time Zone" />
+              <Mapping SourceColumn="Company Utc Offset" DataSetColumn="Company Utc Offset" />
+              <Mapping SourceColumn="Company Geo Street Number" DataSetColumn="Company Geo Street Number" />
+              <Mapping SourceColumn="Company Geo Street Name" DataSetColumn="Company Geo Street Name" />
+              <Mapping SourceColumn="Company Geo Sub Premise" DataSetColumn="Company Geo Sub Premise" />
+              <Mapping SourceColumn="Company Geo City" DataSetColumn="Company Geo City" />
+              <Mapping SourceColumn="Company Geo Postal Code" DataSetColumn="Company Geo Postal Code" />
+              <Mapping SourceColumn="Company Geo State" DataSetColumn="Company Geo State" />
+              <Mapping SourceColumn="Company Geo State Code" DataSetColumn="Company Geo State Code" />
+              <Mapping SourceColumn="Company Geo Country" DataSetColumn="Company Geo Country" />
+              <Mapping SourceColumn="Company Geo Country Code" DataSetColumn="Company Geo Country Code" />
+              <Mapping SourceColumn="Company Geo Lat" DataSetColumn="Company Geo Lat" />
+              <Mapping SourceColumn="Company Geo Lng" DataSetColumn="Company Geo Lng" />
+              <Mapping SourceColumn="Company Logo" DataSetColumn="Company Logo" />
+              <Mapping SourceColumn="Company Facebook Handle" DataSetColumn="Company Facebook Handle" />
+              <Mapping SourceColumn="Company Linkedin Handle" DataSetColumn="Company Linkedin Handle" />
+              <Mapping SourceColumn="Company Twitter Handle" DataSetColumn="Company Twitter Handle" />
+              <Mapping SourceColumn="Company Twitter Id" DataSetColumn="Company Twitter Id" />
+              <Mapping SourceColumn="Company Twitter Bio" DataSetColumn="Company Twitter Bio" />
+              <Mapping SourceColumn="Company Twitter Followers" DataSetColumn="Company Twitter Followers" />
+              <Mapping SourceColumn="Company Twitter Following" DataSetColumn="Company Twitter Following" />
+              <Mapping SourceColumn="Company Twitter Location" DataSetColumn="Company Twitter Location" />
+              <Mapping SourceColumn="Company Twitter Site" DataSetColumn="Company Twitter Site" />
+              <Mapping SourceColumn="Company Twitter Avatar" DataSetColumn="Company Twitter Avatar" />
+              <Mapping SourceColumn="Company Crunchbase Handle" DataSetColumn="Company Crunchbase Handle" />
+              <Mapping SourceColumn="Company Type" DataSetColumn="Company Type" />
+              <Mapping SourceColumn="Company Ticker" DataSetColumn="Company Ticker" />
+              <Mapping SourceColumn="Company Identifiers Us Ein" DataSetColumn="Company Identifiers Us Ein" />
+              <Mapping SourceColumn="Company Phone" DataSetColumn="Company Phone" />
+              <Mapping SourceColumn="Company Metrics Alexa Us Rank" DataSetColumn="Company Metrics Alexa Us Rank" />
+              <Mapping SourceColumn="Company Metrics Alexa Global Rank" DataSetColumn="Company Metrics Alexa Global Rank" />
+              <Mapping SourceColumn="Company Metrics Employees" DataSetColumn="Company Metrics Employees" />
+              <Mapping SourceColumn="Company Metrics Employees Range" DataSetColumn="Company Metrics Employees Range" />
+              <Mapping SourceColumn="Company Metrics Market Cap" DataSetColumn="Company Metrics Market Cap" />
+              <Mapping SourceColumn="Company Metrics Raised" DataSetColumn="Company Metrics Raised" />
+              <Mapping SourceColumn="Company Metrics Annual Revenue" DataSetColumn="Company Metrics Annual Revenue" />
+              <Mapping SourceColumn="Company Metrics Estimated Annual Revenue" DataSetColumn="Company Metrics Estimated Annual Revenue" />
+              <Mapping SourceColumn="Company Metrics Fiscal Year End" DataSetColumn="Company Metrics Fiscal Year End" />
+              <Mapping SourceColumn="Company Tech" DataSetColumn="Company Tech" />
+              <Mapping SourceColumn="Company Parent Domain" DataSetColumn="Company Parent Domain" />
+              <Mapping SourceColumn="YDR URL" DataSetColumn="YDR URL" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataBrokerDatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="DataBrokerDatabaseDataSet" msprop:Generator_DataSetName="DataBrokerDatabaseDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataBrokerDetails" msprop:Generator_RowEvHandlerName="DataBrokerDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="DataBrokerDetailsRowDeleted" msprop:Generator_RowDeletingName="DataBrokerDetailsRowDeleting" msprop:Generator_RowEvArgName="DataBrokerDetailsRowChangeEvent" msprop:Generator_TablePropName="DataBrokerDetails" msprop:Generator_RowChangedName="DataBrokerDetailsRowChanged" msprop:Generator_RowChangingName="DataBrokerDetailsRowChanging" msprop:Generator_TableClassName="DataBrokerDetailsDataTable" msprop:Generator_RowClassName="DataBrokerDetailsRow" msprop:Generator_TableVarName="tableDataBrokerDetails" msprop:Generator_UserTableName="DataBrokerDetails">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Domain" msprop:Generator_ColumnPropNameInRow="Domain" msprop:Generator_ColumnPropNameInTable="DomainColumn" msprop:Generator_ColumnVarNameInTable="columnDomain" msprop:Generator_UserColumnName="Domain" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Emails" msprop:Generator_ColumnPropNameInRow="Emails" msprop:Generator_ColumnPropNameInTable="EmailsColumn" msprop:Generator_ColumnVarNameInTable="columnEmails" msprop:Generator_UserColumnName="Emails" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_UserColumnName="Company Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Privacy_x0020_Policy_x0020_URL" msprop:Generator_ColumnPropNameInRow="Privacy_Policy_URL" msprop:Generator_ColumnPropNameInTable="Privacy_Policy_URLColumn" msprop:Generator_ColumnVarNameInTable="columnPrivacy_Policy_URL" msprop:Generator_UserColumnName="Privacy Policy URL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit_x0020_Bureau" msprop:Generator_ColumnPropNameInRow="Credit_Bureau" msprop:Generator_ColumnPropNameInTable="Credit_BureauColumn" msprop:Generator_ColumnVarNameInTable="columnCredit_Bureau" msprop:Generator_UserColumnName="Credit Bureau" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone_x0020_Numbers" msprop:Generator_ColumnPropNameInRow="Phone_Numbers" msprop:Generator_ColumnPropNameInTable="Phone_NumbersColumn" msprop:Generator_ColumnVarNameInTable="columnPhone_Numbers" msprop:Generator_UserColumnName="Phone Numbers" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Health" msprop:Generator_ColumnPropNameInRow="Health" msprop:Generator_ColumnPropNameInTable="HealthColumn" msprop:Generator_ColumnVarNameInTable="columnHealth" msprop:Generator_UserColumnName="Health" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Legal_x0020_Name" msprop:Generator_ColumnPropNameInRow="Company_Legal_Name" msprop:Generator_ColumnPropNameInTable="Company_Legal_NameColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Legal_Name" msprop:Generator_UserColumnName="Company Legal Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Domain" msprop:Generator_ColumnPropNameInRow="Company_Domain" msprop:Generator_ColumnPropNameInTable="Company_DomainColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Domain" msprop:Generator_UserColumnName="Company Domain" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Domain_x0020_Aliases" msprop:Generator_ColumnPropNameInRow="Company_Domain_Aliases" msprop:Generator_ColumnPropNameInTable="Company_Domain_AliasesColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Domain_Aliases" msprop:Generator_UserColumnName="Company Domain Aliases" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Url" msprop:Generator_ColumnPropNameInRow="Company_Url" msprop:Generator_ColumnPropNameInTable="Company_UrlColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Url" msprop:Generator_UserColumnName="Company Url" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Site_x0020_Phone_x0020_Numbers" msprop:Generator_ColumnPropNameInRow="Company_Site_Phone_Numbers" msprop:Generator_ColumnPropNameInTable="Company_Site_Phone_NumbersColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Site_Phone_Numbers" msprop:Generator_UserColumnName="Company Site Phone Numbers" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Site_x0020_Email_x0020_Addresses" msprop:Generator_ColumnPropNameInRow="Company_Site_Email_Addresses" msprop:Generator_ColumnPropNameInTable="Company_Site_Email_AddressesColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Site_Email_Addresses" msprop:Generator_UserColumnName="Company Site Email Addresses" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Category_x0020_Sector" msprop:Generator_ColumnPropNameInRow="Company_Category_Sector" msprop:Generator_ColumnPropNameInTable="Company_Category_SectorColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Category_Sector" msprop:Generator_UserColumnName="Company Category Sector" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Category_x0020_Industry_x0020_Group" msprop:Generator_ColumnPropNameInRow="Company_Category_Industry_Group" msprop:Generator_ColumnPropNameInTable="Company_Category_Industry_GroupColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Category_Industry_Group" msprop:Generator_UserColumnName="Company Category Industry Group" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Category_x0020_Industry" msprop:Generator_ColumnPropNameInRow="Company_Category_Industry" msprop:Generator_ColumnPropNameInTable="Company_Category_IndustryColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Category_Industry" msprop:Generator_UserColumnName="Company Category Industry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Category_x0020_Sub_x0020_Industry" msprop:Generator_ColumnPropNameInRow="Company_Category_Sub_Industry" msprop:Generator_ColumnPropNameInTable="Company_Category_Sub_IndustryColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Category_Sub_Industry" msprop:Generator_UserColumnName="Company Category Sub Industry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Category_x0020_Sic_x0020_Code" msprop:Generator_ColumnPropNameInRow="Company_Category_Sic_Code" msprop:Generator_ColumnPropNameInTable="Company_Category_Sic_CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Category_Sic_Code" msprop:Generator_UserColumnName="Company Category Sic Code" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Category_x0020_Naics_x0020_Code" msprop:Generator_ColumnPropNameInRow="Company_Category_Naics_Code" msprop:Generator_ColumnPropNameInTable="Company_Category_Naics_CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Category_Naics_Code" msprop:Generator_UserColumnName="Company Category Naics Code" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Tags" msprop:Generator_ColumnPropNameInRow="Company_Tags" msprop:Generator_ColumnPropNameInTable="Company_TagsColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Tags" msprop:Generator_UserColumnName="Company Tags" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Description" msprop:Generator_ColumnPropNameInRow="Company_Description" msprop:Generator_ColumnPropNameInTable="Company_DescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Description" msprop:Generator_UserColumnName="Company Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Founded_x0020_Year" msprop:Generator_ColumnPropNameInRow="Company_Founded_Year" msprop:Generator_ColumnPropNameInTable="Company_Founded_YearColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Founded_Year" msprop:Generator_UserColumnName="Company Founded Year" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Location" msprop:Generator_ColumnPropNameInRow="Company_Location" msprop:Generator_ColumnPropNameInTable="Company_LocationColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Location" msprop:Generator_UserColumnName="Company Location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Time_x0020_Zone" msprop:Generator_ColumnPropNameInRow="Company_Time_Zone" msprop:Generator_ColumnPropNameInTable="Company_Time_ZoneColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Time_Zone" msprop:Generator_UserColumnName="Company Time Zone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Utc_x0020_Offset" msprop:Generator_ColumnPropNameInRow="Company_Utc_Offset" msprop:Generator_ColumnPropNameInTable="Company_Utc_OffsetColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Utc_Offset" msprop:Generator_UserColumnName="Company Utc Offset" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Geo_x0020_Street_x0020_Number" msprop:Generator_ColumnPropNameInRow="Company_Geo_Street_Number" msprop:Generator_ColumnPropNameInTable="Company_Geo_Street_NumberColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Street_Number" msprop:Generator_UserColumnName="Company Geo Street Number" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Geo_x0020_Street_x0020_Name" msprop:Generator_ColumnPropNameInRow="Company_Geo_Street_Name" msprop:Generator_ColumnPropNameInTable="Company_Geo_Street_NameColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Street_Name" msprop:Generator_UserColumnName="Company Geo Street Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Geo_x0020_Sub_x0020_Premise" msprop:Generator_ColumnPropNameInRow="Company_Geo_Sub_Premise" msprop:Generator_ColumnPropNameInTable="Company_Geo_Sub_PremiseColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Sub_Premise" msprop:Generator_UserColumnName="Company Geo Sub Premise" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Geo_x0020_City" msprop:Generator_ColumnPropNameInRow="Company_Geo_City" msprop:Generator_ColumnPropNameInTable="Company_Geo_CityColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_City" msprop:Generator_UserColumnName="Company Geo City" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Geo_x0020_Postal_x0020_Code" msprop:Generator_ColumnPropNameInRow="Company_Geo_Postal_Code" msprop:Generator_ColumnPropNameInTable="Company_Geo_Postal_CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Postal_Code" msprop:Generator_UserColumnName="Company Geo Postal Code" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Geo_x0020_State" msprop:Generator_ColumnPropNameInRow="Company_Geo_State" msprop:Generator_ColumnPropNameInTable="Company_Geo_StateColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_State" msprop:Generator_UserColumnName="Company Geo State" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Geo_x0020_State_x0020_Code" msprop:Generator_ColumnPropNameInRow="Company_Geo_State_Code" msprop:Generator_ColumnPropNameInTable="Company_Geo_State_CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_State_Code" msprop:Generator_UserColumnName="Company Geo State Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Geo_x0020_Country" msprop:Generator_ColumnPropNameInRow="Company_Geo_Country" msprop:Generator_ColumnPropNameInTable="Company_Geo_CountryColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Country" msprop:Generator_UserColumnName="Company Geo Country" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Geo_x0020_Country_x0020_Code" msprop:Generator_ColumnPropNameInRow="Company_Geo_Country_Code" msprop:Generator_ColumnPropNameInTable="Company_Geo_Country_CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Country_Code" msprop:Generator_UserColumnName="Company Geo Country Code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Geo_x0020_Lat" msprop:Generator_ColumnPropNameInRow="Company_Geo_Lat" msprop:Generator_ColumnPropNameInTable="Company_Geo_LatColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Lat" msprop:Generator_UserColumnName="Company Geo Lat" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Geo_x0020_Lng" msprop:Generator_ColumnPropNameInRow="Company_Geo_Lng" msprop:Generator_ColumnPropNameInTable="Company_Geo_LngColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Geo_Lng" msprop:Generator_UserColumnName="Company Geo Lng" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Logo" msprop:Generator_ColumnPropNameInRow="Company_Logo" msprop:Generator_ColumnPropNameInTable="Company_LogoColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Logo" msprop:Generator_UserColumnName="Company Logo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Facebook_x0020_Handle" msprop:Generator_ColumnPropNameInRow="Company_Facebook_Handle" msprop:Generator_ColumnPropNameInTable="Company_Facebook_HandleColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Facebook_Handle" msprop:Generator_UserColumnName="Company Facebook Handle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Linkedin_x0020_Handle" msprop:Generator_ColumnPropNameInRow="Company_Linkedin_Handle" msprop:Generator_ColumnPropNameInTable="Company_Linkedin_HandleColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Linkedin_Handle" msprop:Generator_UserColumnName="Company Linkedin Handle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Twitter_x0020_Handle" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Handle" msprop:Generator_ColumnPropNameInTable="Company_Twitter_HandleColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Handle" msprop:Generator_UserColumnName="Company Twitter Handle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Twitter_x0020_Id" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Id" msprop:Generator_ColumnPropNameInTable="Company_Twitter_IdColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Id" msprop:Generator_UserColumnName="Company Twitter Id" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Twitter_x0020_Bio" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Bio" msprop:Generator_ColumnPropNameInTable="Company_Twitter_BioColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Bio" msprop:Generator_UserColumnName="Company Twitter Bio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Twitter_x0020_Followers" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Followers" msprop:Generator_ColumnPropNameInTable="Company_Twitter_FollowersColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Followers" msprop:Generator_UserColumnName="Company Twitter Followers" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Twitter_x0020_Following" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Following" msprop:Generator_ColumnPropNameInTable="Company_Twitter_FollowingColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Following" msprop:Generator_UserColumnName="Company Twitter Following" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Twitter_x0020_Location" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Location" msprop:Generator_ColumnPropNameInTable="Company_Twitter_LocationColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Location" msprop:Generator_UserColumnName="Company Twitter Location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Twitter_x0020_Site" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Site" msprop:Generator_ColumnPropNameInTable="Company_Twitter_SiteColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Site" msprop:Generator_UserColumnName="Company Twitter Site" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Twitter_x0020_Avatar" msprop:Generator_ColumnPropNameInRow="Company_Twitter_Avatar" msprop:Generator_ColumnPropNameInTable="Company_Twitter_AvatarColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Twitter_Avatar" msprop:Generator_UserColumnName="Company Twitter Avatar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Crunchbase_x0020_Handle" msprop:Generator_ColumnPropNameInRow="Company_Crunchbase_Handle" msprop:Generator_ColumnPropNameInTable="Company_Crunchbase_HandleColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Crunchbase_Handle" msprop:Generator_UserColumnName="Company Crunchbase Handle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Type" msprop:Generator_ColumnPropNameInRow="Company_Type" msprop:Generator_ColumnPropNameInTable="Company_TypeColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Type" msprop:Generator_UserColumnName="Company Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Ticker" msprop:Generator_ColumnPropNameInRow="Company_Ticker" msprop:Generator_ColumnPropNameInTable="Company_TickerColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Ticker" msprop:Generator_UserColumnName="Company Ticker" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Identifiers_x0020_Us_x0020_Ein" msprop:Generator_ColumnPropNameInRow="Company_Identifiers_Us_Ein" msprop:Generator_ColumnPropNameInTable="Company_Identifiers_Us_EinColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Identifiers_Us_Ein" msprop:Generator_UserColumnName="Company Identifiers Us Ein" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Phone" msprop:Generator_ColumnPropNameInRow="Company_Phone" msprop:Generator_ColumnPropNameInTable="Company_PhoneColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Phone" msprop:Generator_UserColumnName="Company Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Metrics_x0020_Alexa_x0020_Us_x0020_Rank" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Alexa_Us_Rank" msprop:Generator_ColumnPropNameInTable="Company_Metrics_Alexa_Us_RankColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Alexa_Us_Rank" msprop:Generator_UserColumnName="Company Metrics Alexa Us Rank" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Metrics_x0020_Alexa_x0020_Global_x0020_Rank" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Alexa_Global_Rank" msprop:Generator_ColumnPropNameInTable="Company_Metrics_Alexa_Global_RankColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Alexa_Global_Rank" msprop:Generator_UserColumnName="Company Metrics Alexa Global Rank" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Metrics_x0020_Employees" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Employees" msprop:Generator_ColumnPropNameInTable="Company_Metrics_EmployeesColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Employees" msprop:Generator_UserColumnName="Company Metrics Employees" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Metrics_x0020_Employees_x0020_Range" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Employees_Range" msprop:Generator_ColumnPropNameInTable="Company_Metrics_Employees_RangeColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Employees_Range" msprop:Generator_UserColumnName="Company Metrics Employees Range" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Company_x0020_Metrics_x0020_Market_x0020_Cap" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Market_Cap" msprop:Generator_ColumnPropNameInTable="Company_Metrics_Market_CapColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Market_Cap" msprop:Generator_UserColumnName="Company Metrics Market Cap" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Metrics_x0020_Raised" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Raised" msprop:Generator_ColumnPropNameInTable="Company_Metrics_RaisedColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Raised" msprop:Generator_UserColumnName="Company Metrics Raised" type="xs:double" minOccurs="0" />
+              <xs:element name="Company_x0020_Metrics_x0020_Annual_x0020_Revenue" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Annual_Revenue" msprop:Generator_ColumnPropNameInTable="Company_Metrics_Annual_RevenueColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Annual_Revenue" msprop:Generator_UserColumnName="Company Metrics Annual Revenue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Metrics_x0020_Estimated_x0020_Annual_x0020_Revenue" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Estimated_Annual_Revenue" msprop:Generator_ColumnPropNameInTable="Company_Metrics_Estimated_Annual_RevenueColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Estimated_Annual_Revenue" msprop:Generator_UserColumnName="Company Metrics Estimated Annual Revenue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Metrics_x0020_Fiscal_x0020_Year_x0020_End" msprop:Generator_ColumnPropNameInRow="Company_Metrics_Fiscal_Year_End" msprop:Generator_ColumnPropNameInTable="Company_Metrics_Fiscal_Year_EndColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Metrics_Fiscal_Year_End" msprop:Generator_UserColumnName="Company Metrics Fiscal Year End" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Tech" msprop:Generator_ColumnPropNameInRow="Company_Tech" msprop:Generator_ColumnPropNameInTable="Company_TechColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Tech" msprop:Generator_UserColumnName="Company Tech" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Company_x0020_Parent_x0020_Domain" msprop:Generator_ColumnPropNameInRow="Company_Parent_Domain" msprop:Generator_ColumnPropNameInTable="Company_Parent_DomainColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Parent_Domain" msprop:Generator_UserColumnName="Company Parent Domain" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YDR_x0020_URL" msprop:Generator_ColumnPropNameInRow="YDR_URL" msprop:Generator_ColumnPropNameInTable="YDR_URLColumn" msprop:Generator_ColumnVarNameInTable="columnYDR_URL" msprop:Generator_UserColumnName="YDR URL" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

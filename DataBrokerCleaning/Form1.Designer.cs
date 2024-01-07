@@ -29,10 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataBrokerDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataBrokerDatabaseDataSet = new DataBrokerCleaning.DataBrokerDatabaseDataSet();
             this.dataBrokerDetailsTableAdapter = new DataBrokerCleaning.DataBrokerDatabaseDataSetTableAdapters.DataBrokerDetailsTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDomain = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCompanyName = new System.Windows.Forms.TextBox();
+            this.Address = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.Search = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridViewData = new System.Windows.Forms.DataGridView();
             this.domainDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,36 +52,12 @@
             this.companyLogoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyTickerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBrokerDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBrokerDatabaseDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeight = 29;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.domainDataGridViewTextBoxColumn,
-            this.emailsDataGridViewTextBoxColumn,
-            this.companyNameDataGridViewTextBoxColumn,
-            this.phoneNumbersDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.companyDomainDataGridViewTextBoxColumn,
-            this.companyFoundedYearDataGridViewTextBoxColumn,
-            this.companyLogoDataGridViewTextBoxColumn,
-            this.companyTypeDataGridViewTextBoxColumn,
-            this.companyTickerDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.dataBrokerDetailsBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
-            this.dataGridView1.TabIndex = 0;
             // 
             // dataBrokerDetailsBindingSource
             // 
@@ -87,6 +72,118 @@
             // dataBrokerDetailsTableAdapter
             // 
             this.dataBrokerDetailsTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Domain";
+            // 
+            // txtDomain
+            // 
+            this.txtDomain.Location = new System.Drawing.Point(88, 36);
+            this.txtDomain.Name = "txtDomain";
+            this.txtDomain.Size = new System.Drawing.Size(140, 20);
+            this.txtDomain.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(266, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Company Name";
+            // 
+            // txtCompanyName
+            // 
+            this.txtCompanyName.Location = new System.Drawing.Point(430, 38);
+            this.txtCompanyName.Name = "txtCompanyName";
+            this.txtCompanyName.Size = new System.Drawing.Size(140, 20);
+            this.txtCompanyName.TabIndex = 5;
+            // 
+            // Address
+            // 
+            this.Address.AutoSize = true;
+            this.Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Address.Location = new System.Drawing.Point(632, 38);
+            this.Address.Name = "Address";
+            this.Address.Size = new System.Drawing.Size(134, 20);
+            this.Address.TabIndex = 6;
+            this.Address.Text = "Company Name";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(817, 40);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(140, 20);
+            this.txtAddress.TabIndex = 7;
+            // 
+            // Search
+            // 
+            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search.Location = new System.Drawing.Point(1011, 29);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(90, 34);
+            this.Search.TabIndex = 8;
+            this.Search.Text = "Search";
+            this.Search.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Address);
+            this.panel1.Controls.Add(this.Search);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtAddress);
+            this.panel1.Controls.Add(this.txtDomain);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtCompanyName);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1398, 100);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridViewData);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 100);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1398, 266);
+            this.panel2.TabIndex = 10;
+            // 
+            // dataGridViewData
+            // 
+            this.dataGridViewData.AllowUserToOrderColumns = true;
+            this.dataGridViewData.AutoGenerateColumns = false;
+            this.dataGridViewData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewData.ColumnHeadersHeight = 29;
+            this.dataGridViewData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.domainDataGridViewTextBoxColumn,
+            this.emailsDataGridViewTextBoxColumn,
+            this.companyNameDataGridViewTextBoxColumn,
+            this.phoneNumbersDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.companyDomainDataGridViewTextBoxColumn,
+            this.companyFoundedYearDataGridViewTextBoxColumn,
+            this.companyLogoDataGridViewTextBoxColumn,
+            this.companyTypeDataGridViewTextBoxColumn,
+            this.companyTickerDataGridViewTextBoxColumn});
+            this.dataGridViewData.DataSource = this.dataBrokerDetailsBindingSource;
+            this.dataGridViewData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewData.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewData.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewData.Name = "dataGridViewData";
+            this.dataGridViewData.RowHeadersWidth = 51;
+            this.dataGridViewData.RowTemplate.Height = 24;
+            this.dataGridViewData.Size = new System.Drawing.Size(1398, 266);
+            this.dataGridViewData.TabIndex = 1;
             // 
             // domainDataGridViewTextBoxColumn
             // 
@@ -160,27 +257,40 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1398, 366);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBrokerDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBrokerDatabaseDataSet)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private DataBrokerDatabaseDataSet dataBrokerDatabaseDataSet;
         private System.Windows.Forms.BindingSource dataBrokerDetailsBindingSource;
         private DataBrokerDatabaseDataSetTableAdapters.DataBrokerDetailsTableAdapter dataBrokerDetailsTableAdapter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDomain;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCompanyName;
+        private System.Windows.Forms.Label Address;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Button Search;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridViewData;
         private System.Windows.Forms.DataGridViewTextBoxColumn domainDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;

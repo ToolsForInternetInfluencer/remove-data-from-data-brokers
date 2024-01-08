@@ -409,6 +409,8 @@ namespace DataBrokerCleaning {
             
             private global::System.Data.DataColumn columnYDR_URL;
             
+            private global::System.Data.DataColumn columnId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataBrokerDetailsDataTable() {
@@ -964,6 +966,14 @@ namespace DataBrokerCleaning {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1131,10 +1141,18 @@ namespace DataBrokerCleaning {
                         Company_Metrics_Fiscal_Year_End,
                         Company_Tech,
                         Company_Parent_Domain,
-                        YDR_URL};
+                        YDR_URL,
+                        null};
                 rowDataBrokerDetailsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataBrokerDetailsRow);
                 return rowDataBrokerDetailsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public DataBrokerDetailsRow FindById(int Id) {
+                return ((DataBrokerDetailsRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1219,6 +1237,7 @@ namespace DataBrokerCleaning {
                 this.columnCompany_Tech = base.Columns["Company Tech"];
                 this.columnCompany_Parent_Domain = base.Columns["Company Parent Domain"];
                 this.columnYDR_URL = base.Columns["YDR URL"];
+                this.columnId = base.Columns["Id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1354,6 +1373,10 @@ namespace DataBrokerCleaning {
                 base.Columns.Add(this.columnCompany_Parent_Domain);
                 this.columnYDR_URL = new global::System.Data.DataColumn("YDR URL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnYDR_URL);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnDomain.MaxLength = 255;
                 this.columnEmails.MaxLength = 255;
                 this.columnCompany_Name.MaxLength = 255;
@@ -1401,6 +1424,12 @@ namespace DataBrokerCleaning {
                 this.columnCompany_Tech.MaxLength = 2147483647;
                 this.columnCompany_Parent_Domain.MaxLength = 255;
                 this.columnYDR_URL.MaxLength = 255;
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnId.ReadOnly = true;
+                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2626,6 +2655,17 @@ namespace DataBrokerCleaning {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableDataBrokerDetails.IdColumn]));
+                }
+                set {
+                    this[this.tableDataBrokerDetails.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDomainNull() {
                 return this.IsNull(this.tableDataBrokerDetails.DomainColumn);
             }
@@ -3629,49 +3669,310 @@ namespace DataBrokerCleaning.DataBrokerDatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Company Tech", "Company Tech");
             tableMapping.ColumnMappings.Add("Company Parent Domain", "Company Parent Domain");
             tableMapping.ColumnMappings.Add("YDR URL", "YDR URL");
+            tableMapping.ColumnMappings.Add("Id", "Id");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [DataBrokerDetails] WHERE (((@IsNull_Domain = 1 AND [Domain] IS NULL)" +
+                " OR ([Domain] = @Original_Domain)) AND ((@IsNull_Emails = 1 AND [Emails] IS NULL" +
+                ") OR ([Emails] = @Original_Emails)) AND ((@IsNull_Company_Name = 1 AND [Company " +
+                "Name] IS NULL) OR ([Company Name] = @Original_Company_Name)) AND ((@IsNull_Priva" +
+                "cy_Policy_URL = 1 AND [Privacy Policy URL] IS NULL) OR ([Privacy Policy URL] = @" +
+                "Original_Privacy_Policy_URL)) AND ((@IsNull_Credit_Bureau = 1 AND [Credit Bureau" +
+                "] IS NULL) OR ([Credit Bureau] = @Original_Credit_Bureau)) AND ((@IsNull_Phone_N" +
+                "umbers = 1 AND [Phone Numbers] IS NULL) OR ([Phone Numbers] = @Original_Phone_Nu" +
+                "mbers)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Origin" +
+                "al_Address)) AND ((@IsNull_Health = 1 AND [Health] IS NULL) OR ([Health] = @Orig" +
+                "inal_Health)) AND ((@IsNull_Company_Legal_Name = 1 AND [Company Legal Name] IS N" +
+                "ULL) OR ([Company Legal Name] = @Original_Company_Legal_Name)) AND ((@IsNull_Com" +
+                "pany_Domain = 1 AND [Company Domain] IS NULL) OR ([Company Domain] = @Original_C" +
+                "ompany_Domain)) AND ((@IsNull_Company_Url = 1 AND [Company Url] IS NULL) OR ([Co" +
+                "mpany Url] = @Original_Company_Url)) AND ((@IsNull_Company_Site_Phone_Numbers = " +
+                "1 AND [Company Site Phone Numbers] IS NULL) OR ([Company Site Phone Numbers] = @" +
+                "Original_Company_Site_Phone_Numbers)) AND ((@IsNull_Company_Site_Email_Addresses" +
+                " = 1 AND [Company Site Email Addresses] IS NULL) OR ([Company Site Email Address" +
+                "es] = @Original_Company_Site_Email_Addresses)) AND ((@IsNull_Company_Category_Se" +
+                "ctor = 1 AND [Company Category Sector] IS NULL) OR ([Company Category Sector] = " +
+                "@Original_Company_Category_Sector)) AND ((@IsNull_Company_Category_Industry_Grou" +
+                "p = 1 AND [Company Category Industry Group] IS NULL) OR ([Company Category Indus" +
+                "try Group] = @Original_Company_Category_Industry_Group)) AND ((@IsNull_Company_C" +
+                "ategory_Industry = 1 AND [Company Category Industry] IS NULL) OR ([Company Categ" +
+                "ory Industry] = @Original_Company_Category_Industry)) AND ((@IsNull_Company_Cate" +
+                "gory_Sub_Industry = 1 AND [Company Category Sub Industry] IS NULL) OR ([Company " +
+                "Category Sub Industry] = @Original_Company_Category_Sub_Industry)) AND ((@IsNull" +
+                "_Company_Category_Sic_Code = 1 AND [Company Category Sic Code] IS NULL) OR ([Com" +
+                "pany Category Sic Code] = @Original_Company_Category_Sic_Code)) AND ((@IsNull_Co" +
+                "mpany_Category_Naics_Code = 1 AND [Company Category Naics Code] IS NULL) OR ([Co" +
+                "mpany Category Naics Code] = @Original_Company_Category_Naics_Code)) AND ((@IsNu" +
+                "ll_Company_Tags = 1 AND [Company Tags] IS NULL) OR ([Company Tags] = @Original_C" +
+                "ompany_Tags)) AND ((@IsNull_Company_Description = 1 AND [Company Description] IS" +
+                " NULL) OR ([Company Description] = @Original_Company_Description)) AND ((@IsNull" +
+                "_Company_Founded_Year = 1 AND [Company Founded Year] IS NULL) OR ([Company Found" +
+                "ed Year] = @Original_Company_Founded_Year)) AND ((@IsNull_Company_Location = 1 A" +
+                "ND [Company Location] IS NULL) OR ([Company Location] = @Original_Company_Locati" +
+                "on)) AND ((@IsNull_Company_Time_Zone = 1 AND [Company Time Zone] IS NULL) OR ([C" +
+                "ompany Time Zone] = @Original_Company_Time_Zone)) AND ((@IsNull_Company_Utc_Offs" +
+                "et = 1 AND [Company Utc Offset] IS NULL) OR ([Company Utc Offset] = @Original_Co" +
+                "mpany_Utc_Offset)) AND ((@IsNull_Company_Geo_Street_Number = 1 AND [Company Geo " +
+                "Street Number] IS NULL) OR ([Company Geo Street Number] = @Original_Company_Geo_" +
+                "Street_Number)) AND ((@IsNull_Company_Geo_Street_Name = 1 AND [Company Geo Stree" +
+                "t Name] IS NULL) OR ([Company Geo Street Name] = @Original_Company_Geo_Street_Na" +
+                "me)) AND ((@IsNull_Company_Geo_Sub_Premise = 1 AND [Company Geo Sub Premise] IS " +
+                "NULL) OR ([Company Geo Sub Premise] = @Original_Company_Geo_Sub_Premise)) AND ((" +
+                "@IsNull_Company_Geo_City = 1 AND [Company Geo City] IS NULL) OR ([Company Geo Ci" +
+                "ty] = @Original_Company_Geo_City)) AND ((@IsNull_Company_Geo_Postal_Code = 1 AND" +
+                " [Company Geo Postal Code] IS NULL) OR ([Company Geo Postal Code] = @Original_Co" +
+                "mpany_Geo_Postal_Code)) AND ((@IsNull_Company_Geo_State = 1 AND [Company Geo Sta" +
+                "te] IS NULL) OR ([Company Geo State] = @Original_Company_Geo_State)) AND ((@IsNu" +
+                "ll_Company_Geo_State_Code = 1 AND [Company Geo State Code] IS NULL) OR ([Company" +
+                " Geo State Code] = @Original_Company_Geo_State_Code)) AND ((@IsNull_Company_Geo_" +
+                "Country = 1 AND [Company Geo Country] IS NULL) OR ([Company Geo Country] = @Orig" +
+                "inal_Company_Geo_Country)) AND ((@IsNull_Company_Geo_Country_Code = 1 AND [Compa" +
+                "ny Geo Country Code] IS NULL) OR ([Company Geo Country Code] = @Original_Company" +
+                "_Geo_Country_Code)) AND ((@IsNull_Company_Geo_Lat = 1 AND [Company Geo Lat] IS N" +
+                "ULL) OR ([Company Geo Lat] = @Original_Company_Geo_Lat)) AND ((@IsNull_Company_G" +
+                "eo_Lng = 1 AND [Company Geo Lng] IS NULL) OR ([Company Geo Lng] = @Original_Comp" +
+                "any_Geo_Lng)) AND ((@IsNull_Company_Logo = 1 AND [Company Logo] IS NULL) OR ([Co" +
+                "mpany Logo] = @Original_Company_Logo)) AND ((@IsNull_Company_Facebook_Handle = 1" +
+                " AND [Company Facebook Handle] IS NULL) OR ([Company Facebook Handle] = @Origina" +
+                "l_Company_Facebook_Handle)) AND ((@IsNull_Company_Linkedin_Handle = 1 AND [Compa" +
+                "ny Linkedin Handle] IS NULL) OR ([Company Linkedin Handle] = @Original_Company_L" +
+                "inkedin_Handle)) AND ((@IsNull_Company_Twitter_Handle = 1 AND [Company Twitter H" +
+                "andle] IS NULL) OR ([Company Twitter Handle] = @Original_Company_Twitter_Handle)" +
+                ") AND ((@IsNull_Company_Twitter_Id = 1 AND [Company Twitter Id] IS NULL) OR ([Co" +
+                "mpany Twitter Id] = @Original_Company_Twitter_Id)) AND ((@IsNull_Company_Twitter" +
+                "_Bio = 1 AND [Company Twitter Bio] IS NULL) OR ([Company Twitter Bio] = @Origina" +
+                "l_Company_Twitter_Bio)) AND ((@IsNull_Company_Twitter_Followers = 1 AND [Company" +
+                " Twitter Followers] IS NULL) OR ([Company Twitter Followers] = @Original_Company" +
+                "_Twitter_Followers)) AND ((@IsNull_Company_Twitter_Following = 1 AND [Company Tw" +
+                "itter Following] IS NULL) OR ([Company Twitter Following] = @Original_Company_Tw" +
+                "itter_Following)) AND ((@IsNull_Company_Twitter_Location = 1 AND [Company Twitte" +
+                "r Location] IS NULL) OR ([Company Twitter Location] = @Original_Company_Twitter_" +
+                "Location)) AND ((@IsNull_Company_Twitter_Site = 1 AND [Company Twitter Site] IS " +
+                "NULL) OR ([Company Twitter Site] = @Original_Company_Twitter_Site)) AND ((@IsNul" +
+                "l_Company_Twitter_Avatar = 1 AND [Company Twitter Avatar] IS NULL) OR ([Company " +
+                "Twitter Avatar] = @Original_Company_Twitter_Avatar)) AND ((@IsNull_Company_Crunc" +
+                "hbase_Handle = 1 AND [Company Crunchbase Handle] IS NULL) OR ([Company Crunchbas" +
+                "e Handle] = @Original_Company_Crunchbase_Handle)) AND ((@IsNull_Company_Type = 1" +
+                " AND [Company Type] IS NULL) OR ([Company Type] = @Original_Company_Type)) AND (" +
+                "(@IsNull_Company_Ticker = 1 AND [Company Ticker] IS NULL) OR ([Company Ticker] =" +
+                " @Original_Company_Ticker)) AND ((@IsNull_Company_Identifiers_Us_Ein = 1 AND [Co" +
+                "mpany Identifiers Us Ein] IS NULL) OR ([Company Identifiers Us Ein] = @Original_" +
+                "Company_Identifiers_Us_Ein)) AND ((@IsNull_Company_Phone = 1 AND [Company Phone]" +
+                " IS NULL) OR ([Company Phone] = @Original_Company_Phone)) AND ((@IsNull_Company_" +
+                "Metrics_Alexa_Us_Rank = 1 AND [Company Metrics Alexa Us Rank] IS NULL) OR ([Comp" +
+                "any Metrics Alexa Us Rank] = @Original_Company_Metrics_Alexa_Us_Rank)) AND ((@Is" +
+                "Null_Company_Metrics_Alexa_Global_Rank = 1 AND [Company Metrics Alexa Global Ran" +
+                "k] IS NULL) OR ([Company Metrics Alexa Global Rank] = @Original_Company_Metrics_" +
+                "Alexa_Global_Rank)) AND ((@IsNull_Company_Metrics_Employees = 1 AND [Company Met" +
+                "rics Employees] IS NULL) OR ([Company Metrics Employees] = @Original_Company_Met" +
+                "rics_Employees)) AND ((@IsNull_Company_Metrics_Employees_Range = 1 AND [Company " +
+                "Metrics Employees Range] IS NULL) OR ([Company Metrics Employees Range] = @Origi" +
+                "nal_Company_Metrics_Employees_Range)) AND ((@IsNull_Company_Metrics_Market_Cap =" +
+                " 1 AND [Company Metrics Market Cap] IS NULL) OR ([Company Metrics Market Cap] = " +
+                "@Original_Company_Metrics_Market_Cap)) AND ((@IsNull_Company_Metrics_Raised = 1 " +
+                "AND [Company Metrics Raised] IS NULL) OR ([Company Metrics Raised] = @Original_C" +
+                "ompany_Metrics_Raised)) AND ((@IsNull_Company_Metrics_Annual_Revenue = 1 AND [Co" +
+                "mpany Metrics Annual Revenue] IS NULL) OR ([Company Metrics Annual Revenue] = @O" +
+                "riginal_Company_Metrics_Annual_Revenue)) AND ((@IsNull_Company_Metrics_Estimated" +
+                "_Annual_Revenue = 1 AND [Company Metrics Estimated Annual Revenue] IS NULL) OR (" +
+                "[Company Metrics Estimated Annual Revenue] = @Original_Company_Metrics_Estimated" +
+                "_Annual_Revenue)) AND ((@IsNull_Company_Metrics_Fiscal_Year_End = 1 AND [Company" +
+                " Metrics Fiscal Year End] IS NULL) OR ([Company Metrics Fiscal Year End] = @Orig" +
+                "inal_Company_Metrics_Fiscal_Year_End)) AND ((@IsNull_Company_Parent_Domain = 1 A" +
+                "ND [Company Parent Domain] IS NULL) OR ([Company Parent Domain] = @Original_Comp" +
+                "any_Parent_Domain)) AND ((@IsNull_YDR_URL = 1 AND [YDR URL] IS NULL) OR ([YDR UR" +
+                "L] = @Original_YDR_URL)) AND ([Id] = @Original_Id))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Domain", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Emails", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emails", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Emails", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emails", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Privacy_Policy_URL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Privacy Policy URL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Privacy_Policy_URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Privacy Policy URL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Credit_Bureau", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Credit Bureau", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Credit_Bureau", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Credit Bureau", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone_Numbers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Numbers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Numbers", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Numbers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Health", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Health", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Legal_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Legal Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Legal_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Legal Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Domain", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Domain", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Url", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Url", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Url", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Url", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Site_Phone_Numbers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Phone Numbers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Site_Phone_Numbers", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Phone Numbers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Site_Email_Addresses", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Email Addresses", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Site_Email_Addresses", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Email Addresses", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Sector", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sector", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Sector", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sector", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Industry_Group", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry Group", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Industry_Group", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry Group", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Industry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Industry", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Sub_Industry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sub Industry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Sub_Industry", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sub Industry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Sic_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sic Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Sic_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sic Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Naics_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Naics Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Naics_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Naics Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Tags", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Tags", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Tags", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Tags", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Founded_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Founded Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Founded_Year", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Founded Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Location", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Location", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Time_Zone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Time Zone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Time_Zone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Time Zone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Utc_Offset", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Utc Offset", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Utc_Offset", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Utc Offset", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Street_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Street_Number", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Street_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Street_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Sub_Premise", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Sub Premise", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Sub_Premise", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Sub Premise", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo City", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Postal_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Postal Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Postal_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Postal Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_State", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_State_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_State_Code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Country", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Country_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Country_Code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Lat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Lat", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Lng", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lng", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Lng", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lng", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Logo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Logo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Logo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Logo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Facebook_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Facebook Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Facebook_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Facebook Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Linkedin_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Linkedin Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Linkedin_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Linkedin Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Id", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Bio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Bio", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Bio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Bio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Followers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Followers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Followers", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Followers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Following", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Following", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Following", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Following", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Location", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Location", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Site", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Site", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Site", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Site", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Avatar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Avatar", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Avatar", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Avatar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Crunchbase_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Crunchbase Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Crunchbase_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Crunchbase Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Ticker", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Ticker", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Ticker", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Ticker", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Identifiers_Us_Ein", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Identifiers Us Ein", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Identifiers_Us_Ein", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Identifiers Us Ein", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Phone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Phone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Alexa_Us_Rank", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Us Rank", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Alexa_Us_Rank", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Us Rank", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Alexa_Global_Rank", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Global Rank", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Alexa_Global_Rank", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Global Rank", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Employees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Employees", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Employees_Range", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees Range", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Employees_Range", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees Range", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Market_Cap", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Market Cap", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Market_Cap", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Market Cap", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Raised", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Raised", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Raised", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Raised", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Annual_Revenue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Annual Revenue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Annual_Revenue", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Annual Revenue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Estimated_Annual_Revenue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Estimated Annual Revenue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Estimated_Annual_Revenue", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Estimated Annual Revenue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Fiscal_Year_End", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Fiscal Year End", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Fiscal_Year_End", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Fiscal Year End", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Parent_Domain", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Parent Domain", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Parent_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Parent Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_YDR_URL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YDR URL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_YDR_URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YDR URL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DataBrokerDetails] ([Domain], [Emails], [Company Name], [Priva" +
-                "cy Policy URL], [Credit Bureau], [Phone Numbers], [Address], [Health], [Company " +
-                "Legal Name], [Company Domain], [Company Domain Aliases], [Company Url], [Company" +
-                " Site Phone Numbers], [Company Site Email Addresses], [Company Category Sector]," +
-                " [Company Category Industry Group], [Company Category Industry], [Company Catego" +
-                "ry Sub Industry], [Company Category Sic Code], [Company Category Naics Code], [C" +
-                "ompany Tags], [Company Description], [Company Founded Year], [Company Location]," +
-                " [Company Time Zone], [Company Utc Offset], [Company Geo Street Number], [Compan" +
-                "y Geo Street Name], [Company Geo Sub Premise], [Company Geo City], [Company Geo " +
-                "Postal Code], [Company Geo State], [Company Geo State Code], [Company Geo Countr" +
-                "y], [Company Geo Country Code], [Company Geo Lat], [Company Geo Lng], [Company L" +
-                "ogo], [Company Facebook Handle], [Company Linkedin Handle], [Company Twitter Han" +
-                "dle], [Company Twitter Id], [Company Twitter Bio], [Company Twitter Followers], " +
-                "[Company Twitter Following], [Company Twitter Location], [Company Twitter Site]," +
-                " [Company Twitter Avatar], [Company Crunchbase Handle], [Company Type], [Company" +
-                " Ticker], [Company Identifiers Us Ein], [Company Phone], [Company Metrics Alexa " +
-                "Us Rank], [Company Metrics Alexa Global Rank], [Company Metrics Employees], [Com" +
-                "pany Metrics Employees Range], [Company Metrics Market Cap], [Company Metrics Ra" +
-                "ised], [Company Metrics Annual Revenue], [Company Metrics Estimated Annual Reven" +
-                "ue], [Company Metrics Fiscal Year End], [Company Tech], [Company Parent Domain]," +
-                " [YDR URL]) VALUES (@Domain, @Emails, @Company_Name, @Privacy_Policy_URL, @Credi" +
-                "t_Bureau, @Phone_Numbers, @Address, @Health, @Company_Legal_Name, @Company_Domai" +
-                "n, @Company_Domain_Aliases, @Company_Url, @Company_Site_Phone_Numbers, @Company_" +
-                "Site_Email_Addresses, @Company_Category_Sector, @Company_Category_Industry_Group" +
-                ", @Company_Category_Industry, @Company_Category_Sub_Industry, @Company_Category_" +
-                "Sic_Code, @Company_Category_Naics_Code, @Company_Tags, @Company_Description, @Co" +
-                "mpany_Founded_Year, @Company_Location, @Company_Time_Zone, @Company_Utc_Offset, " +
-                "@Company_Geo_Street_Number, @Company_Geo_Street_Name, @Company_Geo_Sub_Premise, " +
-                "@Company_Geo_City, @Company_Geo_Postal_Code, @Company_Geo_State, @Company_Geo_St" +
-                "ate_Code, @Company_Geo_Country, @Company_Geo_Country_Code, @Company_Geo_Lat, @Co" +
-                "mpany_Geo_Lng, @Company_Logo, @Company_Facebook_Handle, @Company_Linkedin_Handle" +
-                ", @Company_Twitter_Handle, @Company_Twitter_Id, @Company_Twitter_Bio, @Company_T" +
-                "witter_Followers, @Company_Twitter_Following, @Company_Twitter_Location, @Compan" +
-                "y_Twitter_Site, @Company_Twitter_Avatar, @Company_Crunchbase_Handle, @Company_Ty" +
-                "pe, @Company_Ticker, @Company_Identifiers_Us_Ein, @Company_Phone, @Company_Metri" +
-                "cs_Alexa_Us_Rank, @Company_Metrics_Alexa_Global_Rank, @Company_Metrics_Employees" +
-                ", @Company_Metrics_Employees_Range, @Company_Metrics_Market_Cap, @Company_Metric" +
-                "s_Raised, @Company_Metrics_Annual_Revenue, @Company_Metrics_Estimated_Annual_Rev" +
-                "enue, @Company_Metrics_Fiscal_Year_End, @Company_Tech, @Company_Parent_Domain, @" +
-                "YDR_URL)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [DataBrokerDetails] ([Domain], [Emails], [Company Name], [Privacy Pol" +
+                "icy URL], [Credit Bureau], [Phone Numbers], [Address], [Health], [Company Legal " +
+                "Name], [Company Domain], [Company Domain Aliases], [Company Url], [Company Site " +
+                "Phone Numbers], [Company Site Email Addresses], [Company Category Sector], [Comp" +
+                "any Category Industry Group], [Company Category Industry], [Company Category Sub" +
+                " Industry], [Company Category Sic Code], [Company Category Naics Code], [Company" +
+                " Tags], [Company Description], [Company Founded Year], [Company Location], [Comp" +
+                "any Time Zone], [Company Utc Offset], [Company Geo Street Number], [Company Geo " +
+                "Street Name], [Company Geo Sub Premise], [Company Geo City], [Company Geo Postal" +
+                " Code], [Company Geo State], [Company Geo State Code], [Company Geo Country], [C" +
+                "ompany Geo Country Code], [Company Geo Lat], [Company Geo Lng], [Company Logo], " +
+                "[Company Facebook Handle], [Company Linkedin Handle], [Company Twitter Handle], " +
+                "[Company Twitter Id], [Company Twitter Bio], [Company Twitter Followers], [Compa" +
+                "ny Twitter Following], [Company Twitter Location], [Company Twitter Site], [Comp" +
+                "any Twitter Avatar], [Company Crunchbase Handle], [Company Type], [Company Ticke" +
+                "r], [Company Identifiers Us Ein], [Company Phone], [Company Metrics Alexa Us Ran" +
+                "k], [Company Metrics Alexa Global Rank], [Company Metrics Employees], [Company M" +
+                "etrics Employees Range], [Company Metrics Market Cap], [Company Metrics Raised]," +
+                " [Company Metrics Annual Revenue], [Company Metrics Estimated Annual Revenue], [" +
+                "Company Metrics Fiscal Year End], [Company Tech], [Company Parent Domain], [YDR " +
+                "URL]) VALUES (@Domain, @Emails, @Company_Name, @Privacy_Policy_URL, @Credit_Bure" +
+                "au, @Phone_Numbers, @Address, @Health, @Company_Legal_Name, @Company_Domain, @Co" +
+                "mpany_Domain_Aliases, @Company_Url, @Company_Site_Phone_Numbers, @Company_Site_E" +
+                "mail_Addresses, @Company_Category_Sector, @Company_Category_Industry_Group, @Com" +
+                "pany_Category_Industry, @Company_Category_Sub_Industry, @Company_Category_Sic_Co" +
+                "de, @Company_Category_Naics_Code, @Company_Tags, @Company_Description, @Company_" +
+                "Founded_Year, @Company_Location, @Company_Time_Zone, @Company_Utc_Offset, @Compa" +
+                "ny_Geo_Street_Number, @Company_Geo_Street_Name, @Company_Geo_Sub_Premise, @Compa" +
+                "ny_Geo_City, @Company_Geo_Postal_Code, @Company_Geo_State, @Company_Geo_State_Co" +
+                "de, @Company_Geo_Country, @Company_Geo_Country_Code, @Company_Geo_Lat, @Company_" +
+                "Geo_Lng, @Company_Logo, @Company_Facebook_Handle, @Company_Linkedin_Handle, @Com" +
+                "pany_Twitter_Handle, @Company_Twitter_Id, @Company_Twitter_Bio, @Company_Twitter" +
+                "_Followers, @Company_Twitter_Following, @Company_Twitter_Location, @Company_Twit" +
+                "ter_Site, @Company_Twitter_Avatar, @Company_Crunchbase_Handle, @Company_Type, @C" +
+                "ompany_Ticker, @Company_Identifiers_Us_Ein, @Company_Phone, @Company_Metrics_Ale" +
+                "xa_Us_Rank, @Company_Metrics_Alexa_Global_Rank, @Company_Metrics_Employees, @Com" +
+                "pany_Metrics_Employees_Range, @Company_Metrics_Market_Cap, @Company_Metrics_Rais" +
+                "ed, @Company_Metrics_Annual_Revenue, @Company_Metrics_Estimated_Annual_Revenue, " +
+                "@Company_Metrics_Fiscal_Year_End, @Company_Tech, @Company_Parent_Domain, @YDR_UR" +
+                "L);\r\nSELECT Domain, Emails, [Company Name], [Privacy Policy URL], [Credit Bureau" +
+                "], [Phone Numbers], Address, Health, [Company Legal Name], [Company Domain], [Co" +
+                "mpany Domain Aliases], [Company Url], [Company Site Phone Numbers], [Company Sit" +
+                "e Email Addresses], [Company Category Sector], [Company Category Industry Group]" +
+                ", [Company Category Industry], [Company Category Sub Industry], [Company Categor" +
+                "y Sic Code], [Company Category Naics Code], [Company Tags], [Company Description" +
+                "], [Company Founded Year], [Company Location], [Company Time Zone], [Company Utc" +
+                " Offset], [Company Geo Street Number], [Company Geo Street Name], [Company Geo S" +
+                "ub Premise], [Company Geo City], [Company Geo Postal Code], [Company Geo State]," +
+                " [Company Geo State Code], [Company Geo Country], [Company Geo Country Code], [C" +
+                "ompany Geo Lat], [Company Geo Lng], [Company Logo], [Company Facebook Handle], [" +
+                "Company Linkedin Handle], [Company Twitter Handle], [Company Twitter Id], [Compa" +
+                "ny Twitter Bio], [Company Twitter Followers], [Company Twitter Following], [Comp" +
+                "any Twitter Location], [Company Twitter Site], [Company Twitter Avatar], [Compan" +
+                "y Crunchbase Handle], [Company Type], [Company Ticker], [Company Identifiers Us " +
+                "Ein], [Company Phone], [Company Metrics Alexa Us Rank], [Company Metrics Alexa G" +
+                "lobal Rank], [Company Metrics Employees], [Company Metrics Employees Range], [Co" +
+                "mpany Metrics Market Cap], [Company Metrics Raised], [Company Metrics Annual Rev" +
+                "enue], [Company Metrics Estimated Annual Revenue], [Company Metrics Fiscal Year " +
+                "End], [Company Tech], [Company Parent Domain], [YDR URL], Id FROM DataBrokerDeta" +
+                "ils WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Emails", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emails", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3738,6 +4039,372 @@ namespace DataBrokerCleaning.DataBrokerDatabaseDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Tech", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Tech", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Parent_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Parent Domain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YDR_URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YDR URL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [DataBrokerDetails] SET [Domain] = @Domain, [Emails] = @Emails, [Company N" +
+                "ame] = @Company_Name, [Privacy Policy URL] = @Privacy_Policy_URL, [Credit Bureau" +
+                "] = @Credit_Bureau, [Phone Numbers] = @Phone_Numbers, [Address] = @Address, [Hea" +
+                "lth] = @Health, [Company Legal Name] = @Company_Legal_Name, [Company Domain] = @" +
+                "Company_Domain, [Company Domain Aliases] = @Company_Domain_Aliases, [Company Url" +
+                "] = @Company_Url, [Company Site Phone Numbers] = @Company_Site_Phone_Numbers, [C" +
+                "ompany Site Email Addresses] = @Company_Site_Email_Addresses, [Company Category " +
+                "Sector] = @Company_Category_Sector, [Company Category Industry Group] = @Company" +
+                "_Category_Industry_Group, [Company Category Industry] = @Company_Category_Indust" +
+                "ry, [Company Category Sub Industry] = @Company_Category_Sub_Industry, [Company C" +
+                "ategory Sic Code] = @Company_Category_Sic_Code, [Company Category Naics Code] = " +
+                "@Company_Category_Naics_Code, [Company Tags] = @Company_Tags, [Company Descripti" +
+                "on] = @Company_Description, [Company Founded Year] = @Company_Founded_Year, [Com" +
+                "pany Location] = @Company_Location, [Company Time Zone] = @Company_Time_Zone, [C" +
+                "ompany Utc Offset] = @Company_Utc_Offset, [Company Geo Street Number] = @Company" +
+                "_Geo_Street_Number, [Company Geo Street Name] = @Company_Geo_Street_Name, [Compa" +
+                "ny Geo Sub Premise] = @Company_Geo_Sub_Premise, [Company Geo City] = @Company_Ge" +
+                "o_City, [Company Geo Postal Code] = @Company_Geo_Postal_Code, [Company Geo State" +
+                "] = @Company_Geo_State, [Company Geo State Code] = @Company_Geo_State_Code, [Com" +
+                "pany Geo Country] = @Company_Geo_Country, [Company Geo Country Code] = @Company_" +
+                "Geo_Country_Code, [Company Geo Lat] = @Company_Geo_Lat, [Company Geo Lng] = @Com" +
+                "pany_Geo_Lng, [Company Logo] = @Company_Logo, [Company Facebook Handle] = @Compa" +
+                "ny_Facebook_Handle, [Company Linkedin Handle] = @Company_Linkedin_Handle, [Compa" +
+                "ny Twitter Handle] = @Company_Twitter_Handle, [Company Twitter Id] = @Company_Tw" +
+                "itter_Id, [Company Twitter Bio] = @Company_Twitter_Bio, [Company Twitter Followe" +
+                "rs] = @Company_Twitter_Followers, [Company Twitter Following] = @Company_Twitter" +
+                "_Following, [Company Twitter Location] = @Company_Twitter_Location, [Company Twi" +
+                "tter Site] = @Company_Twitter_Site, [Company Twitter Avatar] = @Company_Twitter_" +
+                "Avatar, [Company Crunchbase Handle] = @Company_Crunchbase_Handle, [Company Type]" +
+                " = @Company_Type, [Company Ticker] = @Company_Ticker, [Company Identifiers Us Ei" +
+                "n] = @Company_Identifiers_Us_Ein, [Company Phone] = @Company_Phone, [Company Met" +
+                "rics Alexa Us Rank] = @Company_Metrics_Alexa_Us_Rank, [Company Metrics Alexa Glo" +
+                "bal Rank] = @Company_Metrics_Alexa_Global_Rank, [Company Metrics Employees] = @C" +
+                "ompany_Metrics_Employees, [Company Metrics Employees Range] = @Company_Metrics_E" +
+                "mployees_Range, [Company Metrics Market Cap] = @Company_Metrics_Market_Cap, [Com" +
+                "pany Metrics Raised] = @Company_Metrics_Raised, [Company Metrics Annual Revenue]" +
+                " = @Company_Metrics_Annual_Revenue, [Company Metrics Estimated Annual Revenue] =" +
+                " @Company_Metrics_Estimated_Annual_Revenue, [Company Metrics Fiscal Year End] = " +
+                "@Company_Metrics_Fiscal_Year_End, [Company Tech] = @Company_Tech, [Company Paren" +
+                "t Domain] = @Company_Parent_Domain, [YDR URL] = @YDR_URL WHERE (((@IsNull_Domain" +
+                " = 1 AND [Domain] IS NULL) OR ([Domain] = @Original_Domain)) AND ((@IsNull_Email" +
+                "s = 1 AND [Emails] IS NULL) OR ([Emails] = @Original_Emails)) AND ((@IsNull_Comp" +
+                "any_Name = 1 AND [Company Name] IS NULL) OR ([Company Name] = @Original_Company_" +
+                "Name)) AND ((@IsNull_Privacy_Policy_URL = 1 AND [Privacy Policy URL] IS NULL) OR" +
+                " ([Privacy Policy URL] = @Original_Privacy_Policy_URL)) AND ((@IsNull_Credit_Bur" +
+                "eau = 1 AND [Credit Bureau] IS NULL) OR ([Credit Bureau] = @Original_Credit_Bure" +
+                "au)) AND ((@IsNull_Phone_Numbers = 1 AND [Phone Numbers] IS NULL) OR ([Phone Num" +
+                "bers] = @Original_Phone_Numbers)) AND ((@IsNull_Address = 1 AND [Address] IS NUL" +
+                "L) OR ([Address] = @Original_Address)) AND ((@IsNull_Health = 1 AND [Health] IS " +
+                "NULL) OR ([Health] = @Original_Health)) AND ((@IsNull_Company_Legal_Name = 1 AND" +
+                " [Company Legal Name] IS NULL) OR ([Company Legal Name] = @Original_Company_Lega" +
+                "l_Name)) AND ((@IsNull_Company_Domain = 1 AND [Company Domain] IS NULL) OR ([Com" +
+                "pany Domain] = @Original_Company_Domain)) AND ((@IsNull_Company_Url = 1 AND [Com" +
+                "pany Url] IS NULL) OR ([Company Url] = @Original_Company_Url)) AND ((@IsNull_Com" +
+                "pany_Site_Phone_Numbers = 1 AND [Company Site Phone Numbers] IS NULL) OR ([Compa" +
+                "ny Site Phone Numbers] = @Original_Company_Site_Phone_Numbers)) AND ((@IsNull_Co" +
+                "mpany_Site_Email_Addresses = 1 AND [Company Site Email Addresses] IS NULL) OR ([" +
+                "Company Site Email Addresses] = @Original_Company_Site_Email_Addresses)) AND ((@" +
+                "IsNull_Company_Category_Sector = 1 AND [Company Category Sector] IS NULL) OR ([C" +
+                "ompany Category Sector] = @Original_Company_Category_Sector)) AND ((@IsNull_Comp" +
+                "any_Category_Industry_Group = 1 AND [Company Category Industry Group] IS NULL) O" +
+                "R ([Company Category Industry Group] = @Original_Company_Category_Industry_Group" +
+                ")) AND ((@IsNull_Company_Category_Industry = 1 AND [Company Category Industry] I" +
+                "S NULL) OR ([Company Category Industry] = @Original_Company_Category_Industry)) " +
+                "AND ((@IsNull_Company_Category_Sub_Industry = 1 AND [Company Category Sub Indust" +
+                "ry] IS NULL) OR ([Company Category Sub Industry] = @Original_Company_Category_Su" +
+                "b_Industry)) AND ((@IsNull_Company_Category_Sic_Code = 1 AND [Company Category S" +
+                "ic Code] IS NULL) OR ([Company Category Sic Code] = @Original_Company_Category_S" +
+                "ic_Code)) AND ((@IsNull_Company_Category_Naics_Code = 1 AND [Company Category Na" +
+                "ics Code] IS NULL) OR ([Company Category Naics Code] = @Original_Company_Categor" +
+                "y_Naics_Code)) AND ((@IsNull_Company_Tags = 1 AND [Company Tags] IS NULL) OR ([C" +
+                "ompany Tags] = @Original_Company_Tags)) AND ((@IsNull_Company_Description = 1 AN" +
+                "D [Company Description] IS NULL) OR ([Company Description] = @Original_Company_D" +
+                "escription)) AND ((@IsNull_Company_Founded_Year = 1 AND [Company Founded Year] I" +
+                "S NULL) OR ([Company Founded Year] = @Original_Company_Founded_Year)) AND ((@IsN" +
+                "ull_Company_Location = 1 AND [Company Location] IS NULL) OR ([Company Location] " +
+                "= @Original_Company_Location)) AND ((@IsNull_Company_Time_Zone = 1 AND [Company " +
+                "Time Zone] IS NULL) OR ([Company Time Zone] = @Original_Company_Time_Zone)) AND " +
+                "((@IsNull_Company_Utc_Offset = 1 AND [Company Utc Offset] IS NULL) OR ([Company " +
+                "Utc Offset] = @Original_Company_Utc_Offset)) AND ((@IsNull_Company_Geo_Street_Nu" +
+                "mber = 1 AND [Company Geo Street Number] IS NULL) OR ([Company Geo Street Number" +
+                "] = @Original_Company_Geo_Street_Number)) AND ((@IsNull_Company_Geo_Street_Name " +
+                "= 1 AND [Company Geo Street Name] IS NULL) OR ([Company Geo Street Name] = @Orig" +
+                "inal_Company_Geo_Street_Name)) AND ((@IsNull_Company_Geo_Sub_Premise = 1 AND [Co" +
+                "mpany Geo Sub Premise] IS NULL) OR ([Company Geo Sub Premise] = @Original_Compan" +
+                "y_Geo_Sub_Premise)) AND ((@IsNull_Company_Geo_City = 1 AND [Company Geo City] IS" +
+                " NULL) OR ([Company Geo City] = @Original_Company_Geo_City)) AND ((@IsNull_Compa" +
+                "ny_Geo_Postal_Code = 1 AND [Company Geo Postal Code] IS NULL) OR ([Company Geo P" +
+                "ostal Code] = @Original_Company_Geo_Postal_Code)) AND ((@IsNull_Company_Geo_Stat" +
+                "e = 1 AND [Company Geo State] IS NULL) OR ([Company Geo State] = @Original_Compa" +
+                "ny_Geo_State)) AND ((@IsNull_Company_Geo_State_Code = 1 AND [Company Geo State C" +
+                "ode] IS NULL) OR ([Company Geo State Code] = @Original_Company_Geo_State_Code)) " +
+                "AND ((@IsNull_Company_Geo_Country = 1 AND [Company Geo Country] IS NULL) OR ([Co" +
+                "mpany Geo Country] = @Original_Company_Geo_Country)) AND ((@IsNull_Company_Geo_C" +
+                "ountry_Code = 1 AND [Company Geo Country Code] IS NULL) OR ([Company Geo Country" +
+                " Code] = @Original_Company_Geo_Country_Code)) AND ((@IsNull_Company_Geo_Lat = 1 " +
+                "AND [Company Geo Lat] IS NULL) OR ([Company Geo Lat] = @Original_Company_Geo_Lat" +
+                ")) AND ((@IsNull_Company_Geo_Lng = 1 AND [Company Geo Lng] IS NULL) OR ([Company" +
+                " Geo Lng] = @Original_Company_Geo_Lng)) AND ((@IsNull_Company_Logo = 1 AND [Comp" +
+                "any Logo] IS NULL) OR ([Company Logo] = @Original_Company_Logo)) AND ((@IsNull_C" +
+                "ompany_Facebook_Handle = 1 AND [Company Facebook Handle] IS NULL) OR ([Company F" +
+                "acebook Handle] = @Original_Company_Facebook_Handle)) AND ((@IsNull_Company_Link" +
+                "edin_Handle = 1 AND [Company Linkedin Handle] IS NULL) OR ([Company Linkedin Han" +
+                "dle] = @Original_Company_Linkedin_Handle)) AND ((@IsNull_Company_Twitter_Handle " +
+                "= 1 AND [Company Twitter Handle] IS NULL) OR ([Company Twitter Handle] = @Origin" +
+                "al_Company_Twitter_Handle)) AND ((@IsNull_Company_Twitter_Id = 1 AND [Company Tw" +
+                "itter Id] IS NULL) OR ([Company Twitter Id] = @Original_Company_Twitter_Id)) AND" +
+                " ((@IsNull_Company_Twitter_Bio = 1 AND [Company Twitter Bio] IS NULL) OR ([Compa" +
+                "ny Twitter Bio] = @Original_Company_Twitter_Bio)) AND ((@IsNull_Company_Twitter_" +
+                "Followers = 1 AND [Company Twitter Followers] IS NULL) OR ([Company Twitter Foll" +
+                "owers] = @Original_Company_Twitter_Followers)) AND ((@IsNull_Company_Twitter_Fol" +
+                "lowing = 1 AND [Company Twitter Following] IS NULL) OR ([Company Twitter Followi" +
+                "ng] = @Original_Company_Twitter_Following)) AND ((@IsNull_Company_Twitter_Locati" +
+                "on = 1 AND [Company Twitter Location] IS NULL) OR ([Company Twitter Location] = " +
+                "@Original_Company_Twitter_Location)) AND ((@IsNull_Company_Twitter_Site = 1 AND " +
+                "[Company Twitter Site] IS NULL) OR ([Company Twitter Site] = @Original_Company_T" +
+                "witter_Site)) AND ((@IsNull_Company_Twitter_Avatar = 1 AND [Company Twitter Avat" +
+                "ar] IS NULL) OR ([Company Twitter Avatar] = @Original_Company_Twitter_Avatar)) A" +
+                "ND ((@IsNull_Company_Crunchbase_Handle = 1 AND [Company Crunchbase Handle] IS NU" +
+                "LL) OR ([Company Crunchbase Handle] = @Original_Company_Crunchbase_Handle)) AND " +
+                "((@IsNull_Company_Type = 1 AND [Company Type] IS NULL) OR ([Company Type] = @Ori" +
+                "ginal_Company_Type)) AND ((@IsNull_Company_Ticker = 1 AND [Company Ticker] IS NU" +
+                "LL) OR ([Company Ticker] = @Original_Company_Ticker)) AND ((@IsNull_Company_Iden" +
+                "tifiers_Us_Ein = 1 AND [Company Identifiers Us Ein] IS NULL) OR ([Company Identi" +
+                "fiers Us Ein] = @Original_Company_Identifiers_Us_Ein)) AND ((@IsNull_Company_Pho" +
+                "ne = 1 AND [Company Phone] IS NULL) OR ([Company Phone] = @Original_Company_Phon" +
+                "e)) AND ((@IsNull_Company_Metrics_Alexa_Us_Rank = 1 AND [Company Metrics Alexa U" +
+                "s Rank] IS NULL) OR ([Company Metrics Alexa Us Rank] = @Original_Company_Metrics" +
+                "_Alexa_Us_Rank)) AND ((@IsNull_Company_Metrics_Alexa_Global_Rank = 1 AND [Compan" +
+                "y Metrics Alexa Global Rank] IS NULL) OR ([Company Metrics Alexa Global Rank] = " +
+                "@Original_Company_Metrics_Alexa_Global_Rank)) AND ((@IsNull_Company_Metrics_Empl" +
+                "oyees = 1 AND [Company Metrics Employees] IS NULL) OR ([Company Metrics Employee" +
+                "s] = @Original_Company_Metrics_Employees)) AND ((@IsNull_Company_Metrics_Employe" +
+                "es_Range = 1 AND [Company Metrics Employees Range] IS NULL) OR ([Company Metrics" +
+                " Employees Range] = @Original_Company_Metrics_Employees_Range)) AND ((@IsNull_Co" +
+                "mpany_Metrics_Market_Cap = 1 AND [Company Metrics Market Cap] IS NULL) OR ([Comp" +
+                "any Metrics Market Cap] = @Original_Company_Metrics_Market_Cap)) AND ((@IsNull_C" +
+                "ompany_Metrics_Raised = 1 AND [Company Metrics Raised] IS NULL) OR ([Company Met" +
+                "rics Raised] = @Original_Company_Metrics_Raised)) AND ((@IsNull_Company_Metrics_" +
+                "Annual_Revenue = 1 AND [Company Metrics Annual Revenue] IS NULL) OR ([Company Me" +
+                "trics Annual Revenue] = @Original_Company_Metrics_Annual_Revenue)) AND ((@IsNull" +
+                "_Company_Metrics_Estimated_Annual_Revenue = 1 AND [Company Metrics Estimated Ann" +
+                "ual Revenue] IS NULL) OR ([Company Metrics Estimated Annual Revenue] = @Original" +
+                "_Company_Metrics_Estimated_Annual_Revenue)) AND ((@IsNull_Company_Metrics_Fiscal" +
+                "_Year_End = 1 AND [Company Metrics Fiscal Year End] IS NULL) OR ([Company Metric" +
+                "s Fiscal Year End] = @Original_Company_Metrics_Fiscal_Year_End)) AND ((@IsNull_C" +
+                "ompany_Parent_Domain = 1 AND [Company Parent Domain] IS NULL) OR ([Company Paren" +
+                "t Domain] = @Original_Company_Parent_Domain)) AND ((@IsNull_YDR_URL = 1 AND [YDR" +
+                " URL] IS NULL) OR ([YDR URL] = @Original_YDR_URL)) AND ([Id] = @Original_Id));\r\n" +
+                "SELECT Domain, Emails, [Company Name], [Privacy Policy URL], [Credit Bureau], [P" +
+                "hone Numbers], Address, Health, [Company Legal Name], [Company Domain], [Company" +
+                " Domain Aliases], [Company Url], [Company Site Phone Numbers], [Company Site Ema" +
+                "il Addresses], [Company Category Sector], [Company Category Industry Group], [Co" +
+                "mpany Category Industry], [Company Category Sub Industry], [Company Category Sic" +
+                " Code], [Company Category Naics Code], [Company Tags], [Company Description], [C" +
+                "ompany Founded Year], [Company Location], [Company Time Zone], [Company Utc Offs" +
+                "et], [Company Geo Street Number], [Company Geo Street Name], [Company Geo Sub Pr" +
+                "emise], [Company Geo City], [Company Geo Postal Code], [Company Geo State], [Com" +
+                "pany Geo State Code], [Company Geo Country], [Company Geo Country Code], [Compan" +
+                "y Geo Lat], [Company Geo Lng], [Company Logo], [Company Facebook Handle], [Compa" +
+                "ny Linkedin Handle], [Company Twitter Handle], [Company Twitter Id], [Company Tw" +
+                "itter Bio], [Company Twitter Followers], [Company Twitter Following], [Company T" +
+                "witter Location], [Company Twitter Site], [Company Twitter Avatar], [Company Cru" +
+                "nchbase Handle], [Company Type], [Company Ticker], [Company Identifiers Us Ein]," +
+                " [Company Phone], [Company Metrics Alexa Us Rank], [Company Metrics Alexa Global" +
+                " Rank], [Company Metrics Employees], [Company Metrics Employees Range], [Company" +
+                " Metrics Market Cap], [Company Metrics Raised], [Company Metrics Annual Revenue]" +
+                ", [Company Metrics Estimated Annual Revenue], [Company Metrics Fiscal Year End]," +
+                " [Company Tech], [Company Parent Domain], [YDR URL], Id FROM DataBrokerDetails W" +
+                "HERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Emails", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emails", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Privacy_Policy_URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Privacy Policy URL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Credit_Bureau", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Credit Bureau", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Numbers", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Numbers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Health", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Legal_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Legal Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Domain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Domain_Aliases", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Domain Aliases", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Url", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Url", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Site_Phone_Numbers", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Phone Numbers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Site_Email_Addresses", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Email Addresses", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Category_Sector", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sector", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Category_Industry_Group", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry Group", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Category_Industry", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Category_Sub_Industry", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sub Industry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Category_Sic_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sic Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Category_Naics_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Naics Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Tags", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Tags", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Founded_Year", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Founded Year", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Time_Zone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Time Zone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Utc_Offset", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Utc Offset", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Street_Number", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Street_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Sub_Premise", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Sub Premise", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Postal_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Postal Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_State_Code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Country_Code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country Code", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Lat", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Geo_Lng", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lng", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Logo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Logo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Facebook_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Facebook Handle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Linkedin_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Linkedin Handle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Handle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Id", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Bio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Bio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Followers", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Followers", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Following", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Following", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Site", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Site", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Twitter_Avatar", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Avatar", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Crunchbase_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Crunchbase Handle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Ticker", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Ticker", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Identifiers_Us_Ein", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Identifiers Us Ein", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Alexa_Us_Rank", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Us Rank", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Alexa_Global_Rank", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Global Rank", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Employees", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Employees_Range", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees Range", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Market_Cap", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Market Cap", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Raised", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Raised", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Annual_Revenue", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Annual Revenue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Estimated_Annual_Revenue", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Estimated Annual Revenue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Metrics_Fiscal_Year_End", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Fiscal Year End", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Tech", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Tech", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Company_Parent_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Parent Domain", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YDR_URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YDR URL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Domain", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Emails", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emails", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Emails", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emails", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Privacy_Policy_URL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Privacy Policy URL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Privacy_Policy_URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Privacy Policy URL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Credit_Bureau", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Credit Bureau", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Credit_Bureau", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Credit Bureau", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone_Numbers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Numbers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Numbers", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone Numbers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Address", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Health", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Health", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Health", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Legal_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Legal Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Legal_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Legal Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Domain", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Domain", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Url", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Url", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Url", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Url", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Site_Phone_Numbers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Phone Numbers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Site_Phone_Numbers", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Phone Numbers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Site_Email_Addresses", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Email Addresses", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Site_Email_Addresses", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Site Email Addresses", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Sector", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sector", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Sector", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sector", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Industry_Group", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry Group", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Industry_Group", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry Group", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Industry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Industry", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Industry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Sub_Industry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sub Industry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Sub_Industry", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sub Industry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Sic_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sic Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Sic_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Sic Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Category_Naics_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Naics Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Category_Naics_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Category Naics Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Tags", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Tags", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Tags", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Tags", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Founded_Year", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Founded Year", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Founded_Year", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Founded Year", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Location", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Location", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Time_Zone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Time Zone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Time_Zone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Time Zone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Utc_Offset", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Utc Offset", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Utc_Offset", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Utc Offset", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Street_Number", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Number", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Street_Number", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Street_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Street_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Street Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Sub_Premise", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Sub Premise", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Sub_Premise", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Sub Premise", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo City", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Postal_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Postal Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Postal_Code", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Postal Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_State", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_State_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_State_Code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo State Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Country", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Country", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Country_Code", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country Code", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Country_Code", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Country Code", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Lat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Lat", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Geo_Lng", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lng", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Geo_Lng", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Geo Lng", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Logo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Logo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Logo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Logo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Facebook_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Facebook Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Facebook_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Facebook Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Linkedin_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Linkedin Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Linkedin_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Linkedin Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Id", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Bio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Bio", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Bio", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Bio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Followers", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Followers", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Followers", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Followers", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Following", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Following", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Following", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Following", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Location", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Location", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Site", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Site", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Site", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Site", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Twitter_Avatar", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Avatar", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Twitter_Avatar", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Twitter Avatar", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Crunchbase_Handle", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Crunchbase Handle", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Crunchbase_Handle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Crunchbase Handle", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Ticker", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Ticker", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Ticker", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Ticker", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Identifiers_Us_Ein", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Identifiers Us Ein", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Identifiers_Us_Ein", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Identifiers Us Ein", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Phone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Phone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Alexa_Us_Rank", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Us Rank", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Alexa_Us_Rank", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Us Rank", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Alexa_Global_Rank", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Global Rank", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Alexa_Global_Rank", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Alexa Global Rank", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Employees", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Employees", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Employees_Range", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees Range", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Employees_Range", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Employees Range", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Market_Cap", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Market Cap", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Market_Cap", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Market Cap", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Raised", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Raised", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Raised", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Raised", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Annual_Revenue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Annual Revenue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Annual_Revenue", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Annual Revenue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Estimated_Annual_Revenue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Estimated Annual Revenue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Estimated_Annual_Revenue", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Estimated Annual Revenue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Metrics_Fiscal_Year_End", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Fiscal Year End", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Metrics_Fiscal_Year_End", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Metrics Fiscal Year End", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Company_Parent_Domain", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Parent Domain", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Company_Parent_Domain", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Company Parent Domain", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_YDR_URL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YDR URL", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_YDR_URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YDR URL", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3772,7 +4439,7 @@ namespace DataBrokerCleaning.DataBrokerDatabaseDataSetTableAdapters {
                 "Rank], [Company Metrics Employees], [Company Metrics Employees Range], [Company " +
                 "Metrics Market Cap], [Company Metrics Raised], [Company Metrics Annual Revenue]," +
                 " [Company Metrics Estimated Annual Revenue], [Company Metrics Fiscal Year End], " +
-                "[Company Tech], [Company Parent Domain], [YDR URL] FROM dbo.DataBrokerDetails";
+                "[Company Tech], [Company Parent Domain], [YDR URL], Id FROM DataBrokerDetails";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3827,6 +4494,596 @@ namespace DataBrokerCleaning.DataBrokerDatabaseDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    string Original_Domain, 
+                    string Original_Emails, 
+                    string Original_Company_Name, 
+                    string Original_Privacy_Policy_URL, 
+                    string Original_Credit_Bureau, 
+                    string Original_Phone_Numbers, 
+                    string Original_Address, 
+                    string Original_Health, 
+                    string Original_Company_Legal_Name, 
+                    string Original_Company_Domain, 
+                    string Original_Company_Url, 
+                    string Original_Company_Site_Phone_Numbers, 
+                    string Original_Company_Site_Email_Addresses, 
+                    string Original_Company_Category_Sector, 
+                    string Original_Company_Category_Industry_Group, 
+                    string Original_Company_Category_Industry, 
+                    string Original_Company_Category_Sub_Industry, 
+                    global::System.Nullable<double> Original_Company_Category_Sic_Code, 
+                    global::System.Nullable<double> Original_Company_Category_Naics_Code, 
+                    string Original_Company_Tags, 
+                    string Original_Company_Description, 
+                    global::System.Nullable<double> Original_Company_Founded_Year, 
+                    string Original_Company_Location, 
+                    string Original_Company_Time_Zone, 
+                    global::System.Nullable<double> Original_Company_Utc_Offset, 
+                    global::System.Nullable<double> Original_Company_Geo_Street_Number, 
+                    string Original_Company_Geo_Street_Name, 
+                    global::System.Nullable<double> Original_Company_Geo_Sub_Premise, 
+                    string Original_Company_Geo_City, 
+                    global::System.Nullable<double> Original_Company_Geo_Postal_Code, 
+                    string Original_Company_Geo_State, 
+                    string Original_Company_Geo_State_Code, 
+                    string Original_Company_Geo_Country, 
+                    string Original_Company_Geo_Country_Code, 
+                    global::System.Nullable<double> Original_Company_Geo_Lat, 
+                    global::System.Nullable<double> Original_Company_Geo_Lng, 
+                    string Original_Company_Logo, 
+                    string Original_Company_Facebook_Handle, 
+                    string Original_Company_Linkedin_Handle, 
+                    string Original_Company_Twitter_Handle, 
+                    global::System.Nullable<double> Original_Company_Twitter_Id, 
+                    string Original_Company_Twitter_Bio, 
+                    global::System.Nullable<double> Original_Company_Twitter_Followers, 
+                    global::System.Nullable<double> Original_Company_Twitter_Following, 
+                    string Original_Company_Twitter_Location, 
+                    string Original_Company_Twitter_Site, 
+                    string Original_Company_Twitter_Avatar, 
+                    string Original_Company_Crunchbase_Handle, 
+                    string Original_Company_Type, 
+                    string Original_Company_Ticker, 
+                    global::System.Nullable<double> Original_Company_Identifiers_Us_Ein, 
+                    string Original_Company_Phone, 
+                    global::System.Nullable<double> Original_Company_Metrics_Alexa_Us_Rank, 
+                    global::System.Nullable<double> Original_Company_Metrics_Alexa_Global_Rank, 
+                    global::System.Nullable<double> Original_Company_Metrics_Employees, 
+                    global::System.Nullable<global::System.DateTime> Original_Company_Metrics_Employees_Range, 
+                    string Original_Company_Metrics_Market_Cap, 
+                    global::System.Nullable<double> Original_Company_Metrics_Raised, 
+                    string Original_Company_Metrics_Annual_Revenue, 
+                    string Original_Company_Metrics_Estimated_Annual_Revenue, 
+                    string Original_Company_Metrics_Fiscal_Year_End, 
+                    string Original_Company_Parent_Domain, 
+                    string Original_YDR_URL, 
+                    int Original_Id) {
+            if ((Original_Domain == null)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Domain));
+            }
+            if ((Original_Emails == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Emails));
+            }
+            if ((Original_Company_Name == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Company_Name));
+            }
+            if ((Original_Privacy_Policy_URL == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Privacy_Policy_URL));
+            }
+            if ((Original_Credit_Bureau == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Credit_Bureau));
+            }
+            if ((Original_Phone_Numbers == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Phone_Numbers));
+            }
+            if ((Original_Address == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Address));
+            }
+            if ((Original_Health == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_Health));
+            }
+            if ((Original_Company_Legal_Name == null)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_Company_Legal_Name));
+            }
+            if ((Original_Company_Domain == null)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_Company_Domain));
+            }
+            if ((Original_Company_Url == null)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_Company_Url));
+            }
+            if ((Original_Company_Site_Phone_Numbers == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_Company_Site_Phone_Numbers));
+            }
+            if ((Original_Company_Site_Email_Addresses == null)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_Company_Site_Email_Addresses));
+            }
+            if ((Original_Company_Category_Sector == null)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((string)(Original_Company_Category_Sector));
+            }
+            if ((Original_Company_Category_Industry_Group == null)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_Company_Category_Industry_Group));
+            }
+            if ((Original_Company_Category_Industry == null)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_Company_Category_Industry));
+            }
+            if ((Original_Company_Category_Sub_Industry == null)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_Company_Category_Sub_Industry));
+            }
+            if ((Original_Company_Category_Sic_Code.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((double)(Original_Company_Category_Sic_Code.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Category_Naics_Code.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((double)(Original_Company_Category_Naics_Code.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Tags == null)) {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((string)(Original_Company_Tags));
+            }
+            if ((Original_Company_Description == null)) {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((string)(Original_Company_Description));
+            }
+            if ((Original_Company_Founded_Year.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((double)(Original_Company_Founded_Year.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Location == null)) {
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((string)(Original_Company_Location));
+            }
+            if ((Original_Company_Time_Zone == null)) {
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((string)(Original_Company_Time_Zone));
+            }
+            if ((Original_Company_Utc_Offset.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[49].Value = ((double)(Original_Company_Utc_Offset.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_Street_Number.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[51].Value = ((double)(Original_Company_Geo_Street_Number.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_Street_Name == null)) {
+                this.Adapter.DeleteCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[53].Value = ((string)(Original_Company_Geo_Street_Name));
+            }
+            if ((Original_Company_Geo_Sub_Premise.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[55].Value = ((double)(Original_Company_Geo_Sub_Premise.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_City == null)) {
+                this.Adapter.DeleteCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[57].Value = ((string)(Original_Company_Geo_City));
+            }
+            if ((Original_Company_Geo_Postal_Code.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[59].Value = ((double)(Original_Company_Geo_Postal_Code.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_State == null)) {
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[61].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[61].Value = ((string)(Original_Company_Geo_State));
+            }
+            if ((Original_Company_Geo_State_Code == null)) {
+                this.Adapter.DeleteCommand.Parameters[62].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[63].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[63].Value = ((string)(Original_Company_Geo_State_Code));
+            }
+            if ((Original_Company_Geo_Country == null)) {
+                this.Adapter.DeleteCommand.Parameters[64].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[65].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[64].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[65].Value = ((string)(Original_Company_Geo_Country));
+            }
+            if ((Original_Company_Geo_Country_Code == null)) {
+                this.Adapter.DeleteCommand.Parameters[66].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[67].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[66].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[67].Value = ((string)(Original_Company_Geo_Country_Code));
+            }
+            if ((Original_Company_Geo_Lat.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[68].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[69].Value = ((double)(Original_Company_Geo_Lat.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[68].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[69].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_Lng.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[70].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[71].Value = ((double)(Original_Company_Geo_Lng.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[70].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[71].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Logo == null)) {
+                this.Adapter.DeleteCommand.Parameters[72].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[73].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[72].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[73].Value = ((string)(Original_Company_Logo));
+            }
+            if ((Original_Company_Facebook_Handle == null)) {
+                this.Adapter.DeleteCommand.Parameters[74].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[75].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[74].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[75].Value = ((string)(Original_Company_Facebook_Handle));
+            }
+            if ((Original_Company_Linkedin_Handle == null)) {
+                this.Adapter.DeleteCommand.Parameters[76].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[77].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[76].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[77].Value = ((string)(Original_Company_Linkedin_Handle));
+            }
+            if ((Original_Company_Twitter_Handle == null)) {
+                this.Adapter.DeleteCommand.Parameters[78].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[79].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[78].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[79].Value = ((string)(Original_Company_Twitter_Handle));
+            }
+            if ((Original_Company_Twitter_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[80].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[81].Value = ((double)(Original_Company_Twitter_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[80].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[81].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Twitter_Bio == null)) {
+                this.Adapter.DeleteCommand.Parameters[82].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[83].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[82].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[83].Value = ((string)(Original_Company_Twitter_Bio));
+            }
+            if ((Original_Company_Twitter_Followers.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[84].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[85].Value = ((double)(Original_Company_Twitter_Followers.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[84].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[85].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Twitter_Following.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[86].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[87].Value = ((double)(Original_Company_Twitter_Following.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[86].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[87].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Twitter_Location == null)) {
+                this.Adapter.DeleteCommand.Parameters[88].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[89].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[88].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[89].Value = ((string)(Original_Company_Twitter_Location));
+            }
+            if ((Original_Company_Twitter_Site == null)) {
+                this.Adapter.DeleteCommand.Parameters[90].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[91].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[90].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[91].Value = ((string)(Original_Company_Twitter_Site));
+            }
+            if ((Original_Company_Twitter_Avatar == null)) {
+                this.Adapter.DeleteCommand.Parameters[92].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[93].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[92].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[93].Value = ((string)(Original_Company_Twitter_Avatar));
+            }
+            if ((Original_Company_Crunchbase_Handle == null)) {
+                this.Adapter.DeleteCommand.Parameters[94].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[95].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[94].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[95].Value = ((string)(Original_Company_Crunchbase_Handle));
+            }
+            if ((Original_Company_Type == null)) {
+                this.Adapter.DeleteCommand.Parameters[96].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[97].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[96].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[97].Value = ((string)(Original_Company_Type));
+            }
+            if ((Original_Company_Ticker == null)) {
+                this.Adapter.DeleteCommand.Parameters[98].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[99].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[98].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[99].Value = ((string)(Original_Company_Ticker));
+            }
+            if ((Original_Company_Identifiers_Us_Ein.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[100].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[101].Value = ((double)(Original_Company_Identifiers_Us_Ein.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[100].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[101].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Phone == null)) {
+                this.Adapter.DeleteCommand.Parameters[102].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[103].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[102].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[103].Value = ((string)(Original_Company_Phone));
+            }
+            if ((Original_Company_Metrics_Alexa_Us_Rank.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[104].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[105].Value = ((double)(Original_Company_Metrics_Alexa_Us_Rank.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[104].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[105].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Alexa_Global_Rank.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[106].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[107].Value = ((double)(Original_Company_Metrics_Alexa_Global_Rank.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[106].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[107].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Employees.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[108].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[109].Value = ((double)(Original_Company_Metrics_Employees.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[108].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[109].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Employees_Range.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[110].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[111].Value = ((System.DateTime)(Original_Company_Metrics_Employees_Range.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[110].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[111].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Market_Cap == null)) {
+                this.Adapter.DeleteCommand.Parameters[112].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[113].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[112].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[113].Value = ((string)(Original_Company_Metrics_Market_Cap));
+            }
+            if ((Original_Company_Metrics_Raised.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[114].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[115].Value = ((double)(Original_Company_Metrics_Raised.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[114].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[115].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Annual_Revenue == null)) {
+                this.Adapter.DeleteCommand.Parameters[116].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[117].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[116].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[117].Value = ((string)(Original_Company_Metrics_Annual_Revenue));
+            }
+            if ((Original_Company_Metrics_Estimated_Annual_Revenue == null)) {
+                this.Adapter.DeleteCommand.Parameters[118].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[119].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[118].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[119].Value = ((string)(Original_Company_Metrics_Estimated_Annual_Revenue));
+            }
+            if ((Original_Company_Metrics_Fiscal_Year_End == null)) {
+                this.Adapter.DeleteCommand.Parameters[120].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[121].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[120].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[121].Value = ((string)(Original_Company_Metrics_Fiscal_Year_End));
+            }
+            if ((Original_Company_Parent_Domain == null)) {
+                this.Adapter.DeleteCommand.Parameters[122].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[123].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[122].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[123].Value = ((string)(Original_Company_Parent_Domain));
+            }
+            if ((Original_YDR_URL == null)) {
+                this.Adapter.DeleteCommand.Parameters[124].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[125].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[124].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[125].Value = ((string)(Original_YDR_URL));
+            }
+            this.Adapter.DeleteCommand.Parameters[126].Value = ((int)(Original_Id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4303,6 +5560,1190 @@ namespace DataBrokerCleaning.DataBrokerDatabaseDataSetTableAdapters {
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Domain, 
+                    string Emails, 
+                    string Company_Name, 
+                    string Privacy_Policy_URL, 
+                    string Credit_Bureau, 
+                    string Phone_Numbers, 
+                    string Address, 
+                    string Health, 
+                    string Company_Legal_Name, 
+                    string Company_Domain, 
+                    string Company_Domain_Aliases, 
+                    string Company_Url, 
+                    string Company_Site_Phone_Numbers, 
+                    string Company_Site_Email_Addresses, 
+                    string Company_Category_Sector, 
+                    string Company_Category_Industry_Group, 
+                    string Company_Category_Industry, 
+                    string Company_Category_Sub_Industry, 
+                    global::System.Nullable<double> Company_Category_Sic_Code, 
+                    global::System.Nullable<double> Company_Category_Naics_Code, 
+                    string Company_Tags, 
+                    string Company_Description, 
+                    global::System.Nullable<double> Company_Founded_Year, 
+                    string Company_Location, 
+                    string Company_Time_Zone, 
+                    global::System.Nullable<double> Company_Utc_Offset, 
+                    global::System.Nullable<double> Company_Geo_Street_Number, 
+                    string Company_Geo_Street_Name, 
+                    global::System.Nullable<double> Company_Geo_Sub_Premise, 
+                    string Company_Geo_City, 
+                    global::System.Nullable<double> Company_Geo_Postal_Code, 
+                    string Company_Geo_State, 
+                    string Company_Geo_State_Code, 
+                    string Company_Geo_Country, 
+                    string Company_Geo_Country_Code, 
+                    global::System.Nullable<double> Company_Geo_Lat, 
+                    global::System.Nullable<double> Company_Geo_Lng, 
+                    string Company_Logo, 
+                    string Company_Facebook_Handle, 
+                    string Company_Linkedin_Handle, 
+                    string Company_Twitter_Handle, 
+                    global::System.Nullable<double> Company_Twitter_Id, 
+                    string Company_Twitter_Bio, 
+                    global::System.Nullable<double> Company_Twitter_Followers, 
+                    global::System.Nullable<double> Company_Twitter_Following, 
+                    string Company_Twitter_Location, 
+                    string Company_Twitter_Site, 
+                    string Company_Twitter_Avatar, 
+                    string Company_Crunchbase_Handle, 
+                    string Company_Type, 
+                    string Company_Ticker, 
+                    global::System.Nullable<double> Company_Identifiers_Us_Ein, 
+                    string Company_Phone, 
+                    global::System.Nullable<double> Company_Metrics_Alexa_Us_Rank, 
+                    global::System.Nullable<double> Company_Metrics_Alexa_Global_Rank, 
+                    global::System.Nullable<double> Company_Metrics_Employees, 
+                    global::System.Nullable<global::System.DateTime> Company_Metrics_Employees_Range, 
+                    string Company_Metrics_Market_Cap, 
+                    global::System.Nullable<double> Company_Metrics_Raised, 
+                    string Company_Metrics_Annual_Revenue, 
+                    string Company_Metrics_Estimated_Annual_Revenue, 
+                    string Company_Metrics_Fiscal_Year_End, 
+                    string Company_Tech, 
+                    string Company_Parent_Domain, 
+                    string YDR_URL, 
+                    string Original_Domain, 
+                    string Original_Emails, 
+                    string Original_Company_Name, 
+                    string Original_Privacy_Policy_URL, 
+                    string Original_Credit_Bureau, 
+                    string Original_Phone_Numbers, 
+                    string Original_Address, 
+                    string Original_Health, 
+                    string Original_Company_Legal_Name, 
+                    string Original_Company_Domain, 
+                    string Original_Company_Url, 
+                    string Original_Company_Site_Phone_Numbers, 
+                    string Original_Company_Site_Email_Addresses, 
+                    string Original_Company_Category_Sector, 
+                    string Original_Company_Category_Industry_Group, 
+                    string Original_Company_Category_Industry, 
+                    string Original_Company_Category_Sub_Industry, 
+                    global::System.Nullable<double> Original_Company_Category_Sic_Code, 
+                    global::System.Nullable<double> Original_Company_Category_Naics_Code, 
+                    string Original_Company_Tags, 
+                    string Original_Company_Description, 
+                    global::System.Nullable<double> Original_Company_Founded_Year, 
+                    string Original_Company_Location, 
+                    string Original_Company_Time_Zone, 
+                    global::System.Nullable<double> Original_Company_Utc_Offset, 
+                    global::System.Nullable<double> Original_Company_Geo_Street_Number, 
+                    string Original_Company_Geo_Street_Name, 
+                    global::System.Nullable<double> Original_Company_Geo_Sub_Premise, 
+                    string Original_Company_Geo_City, 
+                    global::System.Nullable<double> Original_Company_Geo_Postal_Code, 
+                    string Original_Company_Geo_State, 
+                    string Original_Company_Geo_State_Code, 
+                    string Original_Company_Geo_Country, 
+                    string Original_Company_Geo_Country_Code, 
+                    global::System.Nullable<double> Original_Company_Geo_Lat, 
+                    global::System.Nullable<double> Original_Company_Geo_Lng, 
+                    string Original_Company_Logo, 
+                    string Original_Company_Facebook_Handle, 
+                    string Original_Company_Linkedin_Handle, 
+                    string Original_Company_Twitter_Handle, 
+                    global::System.Nullable<double> Original_Company_Twitter_Id, 
+                    string Original_Company_Twitter_Bio, 
+                    global::System.Nullable<double> Original_Company_Twitter_Followers, 
+                    global::System.Nullable<double> Original_Company_Twitter_Following, 
+                    string Original_Company_Twitter_Location, 
+                    string Original_Company_Twitter_Site, 
+                    string Original_Company_Twitter_Avatar, 
+                    string Original_Company_Crunchbase_Handle, 
+                    string Original_Company_Type, 
+                    string Original_Company_Ticker, 
+                    global::System.Nullable<double> Original_Company_Identifiers_Us_Ein, 
+                    string Original_Company_Phone, 
+                    global::System.Nullable<double> Original_Company_Metrics_Alexa_Us_Rank, 
+                    global::System.Nullable<double> Original_Company_Metrics_Alexa_Global_Rank, 
+                    global::System.Nullable<double> Original_Company_Metrics_Employees, 
+                    global::System.Nullable<global::System.DateTime> Original_Company_Metrics_Employees_Range, 
+                    string Original_Company_Metrics_Market_Cap, 
+                    global::System.Nullable<double> Original_Company_Metrics_Raised, 
+                    string Original_Company_Metrics_Annual_Revenue, 
+                    string Original_Company_Metrics_Estimated_Annual_Revenue, 
+                    string Original_Company_Metrics_Fiscal_Year_End, 
+                    string Original_Company_Parent_Domain, 
+                    string Original_YDR_URL, 
+                    int Original_Id, 
+                    int Id) {
+            if ((Domain == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Domain));
+            }
+            if ((Emails == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Emails));
+            }
+            if ((Company_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Company_Name));
+            }
+            if ((Privacy_Policy_URL == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Privacy_Policy_URL));
+            }
+            if ((Credit_Bureau == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Credit_Bureau));
+            }
+            if ((Phone_Numbers == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Phone_Numbers));
+            }
+            if ((Address == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Address));
+            }
+            if ((Health == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Health));
+            }
+            if ((Company_Legal_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Company_Legal_Name));
+            }
+            if ((Company_Domain == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Company_Domain));
+            }
+            if ((Company_Domain_Aliases == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Company_Domain_Aliases));
+            }
+            if ((Company_Url == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Company_Url));
+            }
+            if ((Company_Site_Phone_Numbers == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Company_Site_Phone_Numbers));
+            }
+            if ((Company_Site_Email_Addresses == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Company_Site_Email_Addresses));
+            }
+            if ((Company_Category_Sector == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Company_Category_Sector));
+            }
+            if ((Company_Category_Industry_Group == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Company_Category_Industry_Group));
+            }
+            if ((Company_Category_Industry == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Company_Category_Industry));
+            }
+            if ((Company_Category_Sub_Industry == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Company_Category_Sub_Industry));
+            }
+            if ((Company_Category_Sic_Code.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(Company_Category_Sic_Code.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Category_Naics_Code.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(Company_Category_Naics_Code.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Tags == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Company_Tags));
+            }
+            if ((Company_Description == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Company_Description));
+            }
+            if ((Company_Founded_Year.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((double)(Company_Founded_Year.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Location == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Company_Location));
+            }
+            if ((Company_Time_Zone == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Company_Time_Zone));
+            }
+            if ((Company_Utc_Offset.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Company_Utc_Offset.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Geo_Street_Number.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((double)(Company_Geo_Street_Number.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Geo_Street_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Company_Geo_Street_Name));
+            }
+            if ((Company_Geo_Sub_Premise.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((double)(Company_Geo_Sub_Premise.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Geo_City == null)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Company_Geo_City));
+            }
+            if ((Company_Geo_Postal_Code.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((double)(Company_Geo_Postal_Code.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Geo_State == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Company_Geo_State));
+            }
+            if ((Company_Geo_State_Code == null)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Company_Geo_State_Code));
+            }
+            if ((Company_Geo_Country == null)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Company_Geo_Country));
+            }
+            if ((Company_Geo_Country_Code == null)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Company_Geo_Country_Code));
+            }
+            if ((Company_Geo_Lat.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((double)(Company_Geo_Lat.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Geo_Lng.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((double)(Company_Geo_Lng.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Logo == null)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Company_Logo));
+            }
+            if ((Company_Facebook_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Company_Facebook_Handle));
+            }
+            if ((Company_Linkedin_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Company_Linkedin_Handle));
+            }
+            if ((Company_Twitter_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Company_Twitter_Handle));
+            }
+            if ((Company_Twitter_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((double)(Company_Twitter_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Twitter_Bio == null)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Company_Twitter_Bio));
+            }
+            if ((Company_Twitter_Followers.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((double)(Company_Twitter_Followers.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Twitter_Following.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((double)(Company_Twitter_Following.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Twitter_Location == null)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Company_Twitter_Location));
+            }
+            if ((Company_Twitter_Site == null)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Company_Twitter_Site));
+            }
+            if ((Company_Twitter_Avatar == null)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Company_Twitter_Avatar));
+            }
+            if ((Company_Crunchbase_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Company_Crunchbase_Handle));
+            }
+            if ((Company_Type == null)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(Company_Type));
+            }
+            if ((Company_Ticker == null)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Company_Ticker));
+            }
+            if ((Company_Identifiers_Us_Ein.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((double)(Company_Identifiers_Us_Ein.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Phone == null)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Company_Phone));
+            }
+            if ((Company_Metrics_Alexa_Us_Rank.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((double)(Company_Metrics_Alexa_Us_Rank.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Metrics_Alexa_Global_Rank.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((double)(Company_Metrics_Alexa_Global_Rank.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Metrics_Employees.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((double)(Company_Metrics_Employees.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Metrics_Employees_Range.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((System.DateTime)(Company_Metrics_Employees_Range.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Metrics_Market_Cap == null)) {
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Company_Metrics_Market_Cap));
+            }
+            if ((Company_Metrics_Raised.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((double)(Company_Metrics_Raised.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
+            }
+            if ((Company_Metrics_Annual_Revenue == null)) {
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Company_Metrics_Annual_Revenue));
+            }
+            if ((Company_Metrics_Estimated_Annual_Revenue == null)) {
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Company_Metrics_Estimated_Annual_Revenue));
+            }
+            if ((Company_Metrics_Fiscal_Year_End == null)) {
+                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Company_Metrics_Fiscal_Year_End));
+            }
+            if ((Company_Tech == null)) {
+                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Company_Tech));
+            }
+            if ((Company_Parent_Domain == null)) {
+                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Company_Parent_Domain));
+            }
+            if ((YDR_URL == null)) {
+                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(YDR_URL));
+            }
+            if ((Original_Domain == null)) {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_Domain));
+            }
+            if ((Original_Emails == null)) {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_Emails));
+            }
+            if ((Original_Company_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((string)(Original_Company_Name));
+            }
+            if ((Original_Privacy_Policy_URL == null)) {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((string)(Original_Privacy_Policy_URL));
+            }
+            if ((Original_Credit_Bureau == null)) {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((string)(Original_Credit_Bureau));
+            }
+            if ((Original_Phone_Numbers == null)) {
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((string)(Original_Phone_Numbers));
+            }
+            if ((Original_Address == null)) {
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((string)(Original_Address));
+            }
+            if ((Original_Health == null)) {
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[80].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[80].Value = ((string)(Original_Health));
+            }
+            if ((Original_Company_Legal_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[82].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[82].Value = ((string)(Original_Company_Legal_Name));
+            }
+            if ((Original_Company_Domain == null)) {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[84].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[84].Value = ((string)(Original_Company_Domain));
+            }
+            if ((Original_Company_Url == null)) {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[86].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[86].Value = ((string)(Original_Company_Url));
+            }
+            if ((Original_Company_Site_Phone_Numbers == null)) {
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[88].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[88].Value = ((string)(Original_Company_Site_Phone_Numbers));
+            }
+            if ((Original_Company_Site_Email_Addresses == null)) {
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[90].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[90].Value = ((string)(Original_Company_Site_Email_Addresses));
+            }
+            if ((Original_Company_Category_Sector == null)) {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[92].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((string)(Original_Company_Category_Sector));
+            }
+            if ((Original_Company_Category_Industry_Group == null)) {
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[94].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((string)(Original_Company_Category_Industry_Group));
+            }
+            if ((Original_Company_Category_Industry == null)) {
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[96].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((string)(Original_Company_Category_Industry));
+            }
+            if ((Original_Company_Category_Sub_Industry == null)) {
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[98].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[98].Value = ((string)(Original_Company_Category_Sub_Industry));
+            }
+            if ((Original_Company_Category_Sic_Code.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[100].Value = ((double)(Original_Company_Category_Sic_Code.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[100].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Category_Naics_Code.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[102].Value = ((double)(Original_Company_Category_Naics_Code.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[102].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Tags == null)) {
+                this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[104].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[104].Value = ((string)(Original_Company_Tags));
+            }
+            if ((Original_Company_Description == null)) {
+                this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[106].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[106].Value = ((string)(Original_Company_Description));
+            }
+            if ((Original_Company_Founded_Year.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[108].Value = ((double)(Original_Company_Founded_Year.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[108].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Location == null)) {
+                this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[110].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[110].Value = ((string)(Original_Company_Location));
+            }
+            if ((Original_Company_Time_Zone == null)) {
+                this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[112].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[112].Value = ((string)(Original_Company_Time_Zone));
+            }
+            if ((Original_Company_Utc_Offset.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[114].Value = ((double)(Original_Company_Utc_Offset.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[114].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_Street_Number.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[116].Value = ((double)(Original_Company_Geo_Street_Number.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[116].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_Street_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[118].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[118].Value = ((string)(Original_Company_Geo_Street_Name));
+            }
+            if ((Original_Company_Geo_Sub_Premise.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[120].Value = ((double)(Original_Company_Geo_Sub_Premise.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[120].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_City == null)) {
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[122].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[122].Value = ((string)(Original_Company_Geo_City));
+            }
+            if ((Original_Company_Geo_Postal_Code.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[124].Value = ((double)(Original_Company_Geo_Postal_Code.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[124].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_State == null)) {
+                this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[126].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[126].Value = ((string)(Original_Company_Geo_State));
+            }
+            if ((Original_Company_Geo_State_Code == null)) {
+                this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[128].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[128].Value = ((string)(Original_Company_Geo_State_Code));
+            }
+            if ((Original_Company_Geo_Country == null)) {
+                this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[130].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[130].Value = ((string)(Original_Company_Geo_Country));
+            }
+            if ((Original_Company_Geo_Country_Code == null)) {
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[132].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[132].Value = ((string)(Original_Company_Geo_Country_Code));
+            }
+            if ((Original_Company_Geo_Lat.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[134].Value = ((double)(Original_Company_Geo_Lat.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[134].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Geo_Lng.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[136].Value = ((double)(Original_Company_Geo_Lng.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[136].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Logo == null)) {
+                this.Adapter.UpdateCommand.Parameters[137].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[138].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[137].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[138].Value = ((string)(Original_Company_Logo));
+            }
+            if ((Original_Company_Facebook_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[140].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[140].Value = ((string)(Original_Company_Facebook_Handle));
+            }
+            if ((Original_Company_Linkedin_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[142].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[142].Value = ((string)(Original_Company_Linkedin_Handle));
+            }
+            if ((Original_Company_Twitter_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[143].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[144].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[143].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[144].Value = ((string)(Original_Company_Twitter_Handle));
+            }
+            if ((Original_Company_Twitter_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[145].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[146].Value = ((double)(Original_Company_Twitter_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[145].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[146].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Twitter_Bio == null)) {
+                this.Adapter.UpdateCommand.Parameters[147].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[148].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[147].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[148].Value = ((string)(Original_Company_Twitter_Bio));
+            }
+            if ((Original_Company_Twitter_Followers.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[149].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[150].Value = ((double)(Original_Company_Twitter_Followers.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[149].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[150].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Twitter_Following.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[151].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[152].Value = ((double)(Original_Company_Twitter_Following.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[151].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[152].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Twitter_Location == null)) {
+                this.Adapter.UpdateCommand.Parameters[153].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[154].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[153].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[154].Value = ((string)(Original_Company_Twitter_Location));
+            }
+            if ((Original_Company_Twitter_Site == null)) {
+                this.Adapter.UpdateCommand.Parameters[155].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[156].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[155].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[156].Value = ((string)(Original_Company_Twitter_Site));
+            }
+            if ((Original_Company_Twitter_Avatar == null)) {
+                this.Adapter.UpdateCommand.Parameters[157].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[158].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[157].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[158].Value = ((string)(Original_Company_Twitter_Avatar));
+            }
+            if ((Original_Company_Crunchbase_Handle == null)) {
+                this.Adapter.UpdateCommand.Parameters[159].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[160].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[159].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[160].Value = ((string)(Original_Company_Crunchbase_Handle));
+            }
+            if ((Original_Company_Type == null)) {
+                this.Adapter.UpdateCommand.Parameters[161].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[162].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[161].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[162].Value = ((string)(Original_Company_Type));
+            }
+            if ((Original_Company_Ticker == null)) {
+                this.Adapter.UpdateCommand.Parameters[163].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[164].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[163].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[164].Value = ((string)(Original_Company_Ticker));
+            }
+            if ((Original_Company_Identifiers_Us_Ein.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[165].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[166].Value = ((double)(Original_Company_Identifiers_Us_Ein.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[165].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[166].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Phone == null)) {
+                this.Adapter.UpdateCommand.Parameters[167].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[168].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[167].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[168].Value = ((string)(Original_Company_Phone));
+            }
+            if ((Original_Company_Metrics_Alexa_Us_Rank.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[169].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[170].Value = ((double)(Original_Company_Metrics_Alexa_Us_Rank.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[169].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[170].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Alexa_Global_Rank.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[171].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[172].Value = ((double)(Original_Company_Metrics_Alexa_Global_Rank.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[171].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[172].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Employees.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[173].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[174].Value = ((double)(Original_Company_Metrics_Employees.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[173].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[174].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Employees_Range.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[175].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[176].Value = ((System.DateTime)(Original_Company_Metrics_Employees_Range.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[175].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[176].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Market_Cap == null)) {
+                this.Adapter.UpdateCommand.Parameters[177].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[178].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[177].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[178].Value = ((string)(Original_Company_Metrics_Market_Cap));
+            }
+            if ((Original_Company_Metrics_Raised.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[179].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[180].Value = ((double)(Original_Company_Metrics_Raised.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[179].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[180].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Company_Metrics_Annual_Revenue == null)) {
+                this.Adapter.UpdateCommand.Parameters[181].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[182].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[181].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[182].Value = ((string)(Original_Company_Metrics_Annual_Revenue));
+            }
+            if ((Original_Company_Metrics_Estimated_Annual_Revenue == null)) {
+                this.Adapter.UpdateCommand.Parameters[183].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[184].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[183].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[184].Value = ((string)(Original_Company_Metrics_Estimated_Annual_Revenue));
+            }
+            if ((Original_Company_Metrics_Fiscal_Year_End == null)) {
+                this.Adapter.UpdateCommand.Parameters[185].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[186].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[185].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[186].Value = ((string)(Original_Company_Metrics_Fiscal_Year_End));
+            }
+            if ((Original_Company_Parent_Domain == null)) {
+                this.Adapter.UpdateCommand.Parameters[187].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[188].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[187].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[188].Value = ((string)(Original_Company_Parent_Domain));
+            }
+            if ((Original_YDR_URL == null)) {
+                this.Adapter.UpdateCommand.Parameters[189].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[190].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[189].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[190].Value = ((string)(Original_YDR_URL));
+            }
+            this.Adapter.UpdateCommand.Parameters[191].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[192].Value = ((int)(Id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Domain, 
+                    string Emails, 
+                    string Company_Name, 
+                    string Privacy_Policy_URL, 
+                    string Credit_Bureau, 
+                    string Phone_Numbers, 
+                    string Address, 
+                    string Health, 
+                    string Company_Legal_Name, 
+                    string Company_Domain, 
+                    string Company_Domain_Aliases, 
+                    string Company_Url, 
+                    string Company_Site_Phone_Numbers, 
+                    string Company_Site_Email_Addresses, 
+                    string Company_Category_Sector, 
+                    string Company_Category_Industry_Group, 
+                    string Company_Category_Industry, 
+                    string Company_Category_Sub_Industry, 
+                    global::System.Nullable<double> Company_Category_Sic_Code, 
+                    global::System.Nullable<double> Company_Category_Naics_Code, 
+                    string Company_Tags, 
+                    string Company_Description, 
+                    global::System.Nullable<double> Company_Founded_Year, 
+                    string Company_Location, 
+                    string Company_Time_Zone, 
+                    global::System.Nullable<double> Company_Utc_Offset, 
+                    global::System.Nullable<double> Company_Geo_Street_Number, 
+                    string Company_Geo_Street_Name, 
+                    global::System.Nullable<double> Company_Geo_Sub_Premise, 
+                    string Company_Geo_City, 
+                    global::System.Nullable<double> Company_Geo_Postal_Code, 
+                    string Company_Geo_State, 
+                    string Company_Geo_State_Code, 
+                    string Company_Geo_Country, 
+                    string Company_Geo_Country_Code, 
+                    global::System.Nullable<double> Company_Geo_Lat, 
+                    global::System.Nullable<double> Company_Geo_Lng, 
+                    string Company_Logo, 
+                    string Company_Facebook_Handle, 
+                    string Company_Linkedin_Handle, 
+                    string Company_Twitter_Handle, 
+                    global::System.Nullable<double> Company_Twitter_Id, 
+                    string Company_Twitter_Bio, 
+                    global::System.Nullable<double> Company_Twitter_Followers, 
+                    global::System.Nullable<double> Company_Twitter_Following, 
+                    string Company_Twitter_Location, 
+                    string Company_Twitter_Site, 
+                    string Company_Twitter_Avatar, 
+                    string Company_Crunchbase_Handle, 
+                    string Company_Type, 
+                    string Company_Ticker, 
+                    global::System.Nullable<double> Company_Identifiers_Us_Ein, 
+                    string Company_Phone, 
+                    global::System.Nullable<double> Company_Metrics_Alexa_Us_Rank, 
+                    global::System.Nullable<double> Company_Metrics_Alexa_Global_Rank, 
+                    global::System.Nullable<double> Company_Metrics_Employees, 
+                    global::System.Nullable<global::System.DateTime> Company_Metrics_Employees_Range, 
+                    string Company_Metrics_Market_Cap, 
+                    global::System.Nullable<double> Company_Metrics_Raised, 
+                    string Company_Metrics_Annual_Revenue, 
+                    string Company_Metrics_Estimated_Annual_Revenue, 
+                    string Company_Metrics_Fiscal_Year_End, 
+                    string Company_Tech, 
+                    string Company_Parent_Domain, 
+                    string YDR_URL, 
+                    string Original_Domain, 
+                    string Original_Emails, 
+                    string Original_Company_Name, 
+                    string Original_Privacy_Policy_URL, 
+                    string Original_Credit_Bureau, 
+                    string Original_Phone_Numbers, 
+                    string Original_Address, 
+                    string Original_Health, 
+                    string Original_Company_Legal_Name, 
+                    string Original_Company_Domain, 
+                    string Original_Company_Url, 
+                    string Original_Company_Site_Phone_Numbers, 
+                    string Original_Company_Site_Email_Addresses, 
+                    string Original_Company_Category_Sector, 
+                    string Original_Company_Category_Industry_Group, 
+                    string Original_Company_Category_Industry, 
+                    string Original_Company_Category_Sub_Industry, 
+                    global::System.Nullable<double> Original_Company_Category_Sic_Code, 
+                    global::System.Nullable<double> Original_Company_Category_Naics_Code, 
+                    string Original_Company_Tags, 
+                    string Original_Company_Description, 
+                    global::System.Nullable<double> Original_Company_Founded_Year, 
+                    string Original_Company_Location, 
+                    string Original_Company_Time_Zone, 
+                    global::System.Nullable<double> Original_Company_Utc_Offset, 
+                    global::System.Nullable<double> Original_Company_Geo_Street_Number, 
+                    string Original_Company_Geo_Street_Name, 
+                    global::System.Nullable<double> Original_Company_Geo_Sub_Premise, 
+                    string Original_Company_Geo_City, 
+                    global::System.Nullable<double> Original_Company_Geo_Postal_Code, 
+                    string Original_Company_Geo_State, 
+                    string Original_Company_Geo_State_Code, 
+                    string Original_Company_Geo_Country, 
+                    string Original_Company_Geo_Country_Code, 
+                    global::System.Nullable<double> Original_Company_Geo_Lat, 
+                    global::System.Nullable<double> Original_Company_Geo_Lng, 
+                    string Original_Company_Logo, 
+                    string Original_Company_Facebook_Handle, 
+                    string Original_Company_Linkedin_Handle, 
+                    string Original_Company_Twitter_Handle, 
+                    global::System.Nullable<double> Original_Company_Twitter_Id, 
+                    string Original_Company_Twitter_Bio, 
+                    global::System.Nullable<double> Original_Company_Twitter_Followers, 
+                    global::System.Nullable<double> Original_Company_Twitter_Following, 
+                    string Original_Company_Twitter_Location, 
+                    string Original_Company_Twitter_Site, 
+                    string Original_Company_Twitter_Avatar, 
+                    string Original_Company_Crunchbase_Handle, 
+                    string Original_Company_Type, 
+                    string Original_Company_Ticker, 
+                    global::System.Nullable<double> Original_Company_Identifiers_Us_Ein, 
+                    string Original_Company_Phone, 
+                    global::System.Nullable<double> Original_Company_Metrics_Alexa_Us_Rank, 
+                    global::System.Nullable<double> Original_Company_Metrics_Alexa_Global_Rank, 
+                    global::System.Nullable<double> Original_Company_Metrics_Employees, 
+                    global::System.Nullable<global::System.DateTime> Original_Company_Metrics_Employees_Range, 
+                    string Original_Company_Metrics_Market_Cap, 
+                    global::System.Nullable<double> Original_Company_Metrics_Raised, 
+                    string Original_Company_Metrics_Annual_Revenue, 
+                    string Original_Company_Metrics_Estimated_Annual_Revenue, 
+                    string Original_Company_Metrics_Fiscal_Year_End, 
+                    string Original_Company_Parent_Domain, 
+                    string Original_YDR_URL, 
+                    int Original_Id) {
+            return this.Update(Domain, Emails, Company_Name, Privacy_Policy_URL, Credit_Bureau, Phone_Numbers, Address, Health, Company_Legal_Name, Company_Domain, Company_Domain_Aliases, Company_Url, Company_Site_Phone_Numbers, Company_Site_Email_Addresses, Company_Category_Sector, Company_Category_Industry_Group, Company_Category_Industry, Company_Category_Sub_Industry, Company_Category_Sic_Code, Company_Category_Naics_Code, Company_Tags, Company_Description, Company_Founded_Year, Company_Location, Company_Time_Zone, Company_Utc_Offset, Company_Geo_Street_Number, Company_Geo_Street_Name, Company_Geo_Sub_Premise, Company_Geo_City, Company_Geo_Postal_Code, Company_Geo_State, Company_Geo_State_Code, Company_Geo_Country, Company_Geo_Country_Code, Company_Geo_Lat, Company_Geo_Lng, Company_Logo, Company_Facebook_Handle, Company_Linkedin_Handle, Company_Twitter_Handle, Company_Twitter_Id, Company_Twitter_Bio, Company_Twitter_Followers, Company_Twitter_Following, Company_Twitter_Location, Company_Twitter_Site, Company_Twitter_Avatar, Company_Crunchbase_Handle, Company_Type, Company_Ticker, Company_Identifiers_Us_Ein, Company_Phone, Company_Metrics_Alexa_Us_Rank, Company_Metrics_Alexa_Global_Rank, Company_Metrics_Employees, Company_Metrics_Employees_Range, Company_Metrics_Market_Cap, Company_Metrics_Raised, Company_Metrics_Annual_Revenue, Company_Metrics_Estimated_Annual_Revenue, Company_Metrics_Fiscal_Year_End, Company_Tech, Company_Parent_Domain, YDR_URL, Original_Domain, Original_Emails, Original_Company_Name, Original_Privacy_Policy_URL, Original_Credit_Bureau, Original_Phone_Numbers, Original_Address, Original_Health, Original_Company_Legal_Name, Original_Company_Domain, Original_Company_Url, Original_Company_Site_Phone_Numbers, Original_Company_Site_Email_Addresses, Original_Company_Category_Sector, Original_Company_Category_Industry_Group, Original_Company_Category_Industry, Original_Company_Category_Sub_Industry, Original_Company_Category_Sic_Code, Original_Company_Category_Naics_Code, Original_Company_Tags, Original_Company_Description, Original_Company_Founded_Year, Original_Company_Location, Original_Company_Time_Zone, Original_Company_Utc_Offset, Original_Company_Geo_Street_Number, Original_Company_Geo_Street_Name, Original_Company_Geo_Sub_Premise, Original_Company_Geo_City, Original_Company_Geo_Postal_Code, Original_Company_Geo_State, Original_Company_Geo_State_Code, Original_Company_Geo_Country, Original_Company_Geo_Country_Code, Original_Company_Geo_Lat, Original_Company_Geo_Lng, Original_Company_Logo, Original_Company_Facebook_Handle, Original_Company_Linkedin_Handle, Original_Company_Twitter_Handle, Original_Company_Twitter_Id, Original_Company_Twitter_Bio, Original_Company_Twitter_Followers, Original_Company_Twitter_Following, Original_Company_Twitter_Location, Original_Company_Twitter_Site, Original_Company_Twitter_Avatar, Original_Company_Crunchbase_Handle, Original_Company_Type, Original_Company_Ticker, Original_Company_Identifiers_Us_Ein, Original_Company_Phone, Original_Company_Metrics_Alexa_Us_Rank, Original_Company_Metrics_Alexa_Global_Rank, Original_Company_Metrics_Employees, Original_Company_Metrics_Employees_Range, Original_Company_Metrics_Market_Cap, Original_Company_Metrics_Raised, Original_Company_Metrics_Annual_Revenue, Original_Company_Metrics_Estimated_Annual_Revenue, Original_Company_Metrics_Fiscal_Year_End, Original_Company_Parent_Domain, Original_YDR_URL, Original_Id, Original_Id);
         }
     }
     

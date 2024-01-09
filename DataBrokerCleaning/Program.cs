@@ -16,7 +16,7 @@ namespace DataBrokerCleaning
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoadGrid());
+            Application.Run(new CompanyIntroData());
         }
     }
 }

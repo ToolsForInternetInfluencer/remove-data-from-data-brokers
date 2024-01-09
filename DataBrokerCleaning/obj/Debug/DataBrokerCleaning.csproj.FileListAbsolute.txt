@@ -2,9 +2,7 @@ E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\bin\Debug\DataBr
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\bin\Debug\DataBrokerDatabase_log.ldf
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.csproj.AssemblyReference.cache
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.csproj.SuggestedBindingRedirects.cache
-E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.LoadGrid.resources
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.Properties.Resources.resources
-E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.ShowDetailsForm.resources
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.csproj.GenerateResource.cache
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.csproj.CoreCompileInputs.cache
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.exe
@@ -12,3 +10,5 @@ E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBr
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\bin\Debug\DataBrokerCleaning.exe.config
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\bin\Debug\DataBrokerCleaning.exe
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\bin\Debug\DataBrokerCleaning.pdb
+E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.CompanyIntroData.resources
+E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.CompanyIntroForm.resources

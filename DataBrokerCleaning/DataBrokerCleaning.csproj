@@ -62,28 +62,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBrokerDatabaseDataSet.cs">
+      <DependentUpon>DataBrokerDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataBrokerDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBrokerDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Data\ShowDetailData.cs" />
-    <Compile Include="LoadGrid.cs">
+    <Compile Include="Data\CompanyIntro.cs" />
+    <Compile Include="DataLoadForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadGrid.Designer.cs">
-      <DependentUpon>LoadGrid.cs</DependentUpon>
+    <Compile Include="DataLoadForm.Designer.cs">
+      <DependentUpon>DataLoadForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowDetailsForm.cs">
+    <Compile Include="CompanyIntroForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowDetailsForm.Designer.cs">
-      <DependentUpon>ShowDetailsForm.cs</DependentUpon>
+    <Compile Include="CompanyIntroForm.Designer.cs">
+      <DependentUpon>CompanyIntroForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="LoadGrid.resx">
-      <DependentUpon>LoadGrid.cs</DependentUpon>
+    <EmbeddedResource Include="DataLoadForm.resx">
+      <DependentUpon>DataLoadForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,8 +97,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ShowDetailsForm.resx">
-      <DependentUpon>ShowDetailsForm.cs</DependentUpon>
+    <EmbeddedResource Include="CompanyIntroForm.resx">
+      <DependentUpon>CompanyIntroForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataBrokerDatabaseDataSet.xsc">
       <DependentUpon>DataBrokerDatabaseDataSet.xsd</DependentUpon>

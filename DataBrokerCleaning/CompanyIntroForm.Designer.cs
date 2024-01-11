@@ -33,6 +33,8 @@
             this.lblCompnayName = new System.Windows.Forms.Label();
             this.panelData = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBackToLoad = new System.Windows.Forms.Button();
+            this.btnContactDetails = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.lblCompanyType = new System.Windows.Forms.Label();
@@ -42,8 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCompanyDescription = new System.Windows.Forms.Label();
-            this.btnPhysicalLocation = new System.Windows.Forms.Button();
-            this.btnBackToLoad = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCompanyLogo)).BeginInit();
             this.panelData.SuspendLayout();
@@ -93,12 +93,35 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnBackToLoad);
-            this.panel1.Controls.Add(this.btnPhysicalLocation);
+            this.panel1.Controls.Add(this.btnContactDetails);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 313);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1474, 100);
             this.panel1.TabIndex = 1;
+            // 
+            // btnBackToLoad
+            // 
+            this.btnBackToLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackToLoad.Location = new System.Drawing.Point(4, 4);
+            this.btnBackToLoad.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBackToLoad.Name = "btnBackToLoad";
+            this.btnBackToLoad.Size = new System.Drawing.Size(561, 42);
+            this.btnBackToLoad.TabIndex = 11;
+            this.btnBackToLoad.Text = "Back To Load Page";
+            this.btnBackToLoad.UseVisualStyleBackColor = true;
+            // 
+            // btnContactDetails
+            // 
+            this.btnContactDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContactDetails.Location = new System.Drawing.Point(909, 0);
+            this.btnContactDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.btnContactDetails.Name = "btnContactDetails";
+            this.btnContactDetails.Size = new System.Drawing.Size(561, 42);
+            this.btnContactDetails.TabIndex = 10;
+            this.btnContactDetails.Text = "Check Contact Details";
+            this.btnContactDetails.UseVisualStyleBackColor = true;
+            this.btnContactDetails.Click += new System.EventHandler(this.btnContactDetails_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -213,28 +236,6 @@
             this.lblCompanyDescription.TabIndex = 8;
             this.lblCompanyDescription.Text = "Company Decription";
             // 
-            // btnPhysicalLocation
-            // 
-            this.btnPhysicalLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhysicalLocation.Location = new System.Drawing.Point(909, 0);
-            this.btnPhysicalLocation.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPhysicalLocation.Name = "btnPhysicalLocation";
-            this.btnPhysicalLocation.Size = new System.Drawing.Size(561, 42);
-            this.btnPhysicalLocation.TabIndex = 10;
-            this.btnPhysicalLocation.Text = "Check Companys Physical Location";
-            this.btnPhysicalLocation.UseVisualStyleBackColor = true;
-            // 
-            // btnBackToLoad
-            // 
-            this.btnBackToLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackToLoad.Location = new System.Drawing.Point(4, 4);
-            this.btnBackToLoad.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBackToLoad.Name = "btnBackToLoad";
-            this.btnBackToLoad.Size = new System.Drawing.Size(561, 42);
-            this.btnBackToLoad.TabIndex = 11;
-            this.btnBackToLoad.Text = "Back To Load Page";
-            this.btnBackToLoad.UseVisualStyleBackColor = true;
-            // 
             // CompanyIntroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,6 +275,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnBackToLoad;
-        private System.Windows.Forms.Button btnPhysicalLocation;
+        private System.Windows.Forms.Button btnContactDetails;
     }
 }

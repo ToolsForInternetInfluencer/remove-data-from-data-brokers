@@ -70,5 +70,10 @@ namespace DataBrokerCleaning
 
 
         }
+
+        private void btnContactDetails_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

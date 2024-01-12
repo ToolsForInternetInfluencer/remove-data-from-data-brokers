@@ -43,10 +43,19 @@ namespace DataBrokerCleaning
                 companyContactDetails.CompanySitePhoneNumbers = Convert.ToString(row["Company Site Phone Numbers"]);
                 companyContactDetails.CompanySiteEmailAddress = Convert.ToString(row["Company Site Email Addresses"]);
                 companyContactDetails.CompanyLocation = Convert.ToString(row["Company Location"]);
-
-
             }
- 
+            lblEmail.Text = companyContactDetails.Email;
+            lblAddress.Text = companyContactDetails.Address;
+            lblCompanyLocation.Text = companyContactDetails.CompanyLocation;
+            lblCompanysiteEmail.Text = companyContactDetails.CompanySiteEmailAddress;
+            lblPhoneNumberDisplay.Text = companyContactDetails.CompanySitePhoneNumbers;
+
+
+
+        }
+
+        private void btnGeoLocation_Click(object sender, EventArgs e)
+        {
 
         }
     }

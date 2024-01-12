@@ -68,6 +68,24 @@
     <Compile Include="CompanyContactDetails.Designer.cs">
       <DependentUpon>CompanyContactDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompanyFinaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyFinaces.Designer.cs">
+      <DependentUpon>CompanyFinaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyGeoDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyGeoDetails.Designer.cs">
+      <DependentUpon>CompanyGeoDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanySocial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanySocial.Designer.cs">
+      <DependentUpon>CompanySocial.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBrokerDatabaseDataSet.cs">
       <DependentUpon>DataBrokerDatabaseDataSet.xsd</DependentUpon>
     </Compile>

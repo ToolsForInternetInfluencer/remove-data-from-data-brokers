@@ -20,9 +20,9 @@ namespace DataBrokerCleaning
         int id = 0;
         public CompanyIntroForm(int dataid)
         {
-            this.id = dataid;
-
+           
             InitializeComponent();
+            this.id = dataid;
 
         }
 

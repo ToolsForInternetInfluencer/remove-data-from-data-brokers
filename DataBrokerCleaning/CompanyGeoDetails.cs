@@ -53,6 +53,12 @@ namespace DataBrokerCleaning
             String CompanyGeoLat = "Company Geo Lat";
             //Company Geo Lng
             String CompanyGeoLng = "Company Geo Lng";
+            // Company Name
+            String CompanyName = "Company Name";
+
+            // Company logo
+            String CompanyLogo = "Company Logo";
+
 
 
 
@@ -85,7 +91,10 @@ namespace DataBrokerCleaning
                 geoLocation.CompanyGeoCountryCode = Convert.ToString(row[CompanyGeoCountryCode]);
                 geoLocation.CompanyGeoLat = Convert.ToString(row[CompanyGeoLat]);
                 geoLocation.CompanyGeoLng = Convert.ToString(row[CompanyGeoLng]);
+                geoLocation.CompanyName = Convert.ToString(row[CompanyName]);   
+                geoLocation.CompanyLogo = Convert.ToString(row[CompanyLogo]);   
             }
+
             lblCompanyTimeZone.Text = geoLocation.CompanyTimeZone;
             lblCompanyUtcOffset.Text = geoLocation.CompanyUtcOffset;    
             lblCompanyGeoStreetNumber.Text = geoLocation.CompanyGeoStreetNumber;
@@ -95,11 +104,10 @@ namespace DataBrokerCleaning
             lblCompanyGeoStateCode.Text = geoLocation.CompanyGeoStateCode;  
             lblCompanyGeoCountry.Text = geoLocation.CompanyGeoCountry;  
             lblCompanyGeoLat.Text = geoLocation.CompanyGeoLat;  
-            lblCompanyGeoLng.Text = geoLocation.CompanyGeoLng;  
-
-
-
-
+            lblCompanyGeoLng.Text = geoLocation.CompanyGeoLng;
+            lblCompnayName.Text = geoLocation.CompanyName;
+            imgCompanyLogo.Load(geoLocation.CompanyLogo);
+            lblCompanyGeoState.Text = geoLocation.CompanyGeoState;
         }
     }
 }

@@ -76,5 +76,10 @@ namespace DataBrokerCleaning
             CompanyContactDetails form = new CompanyContactDetails(this.id);
             form.Show();
         }
+
+        private void btnBackToLoad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -110,6 +110,7 @@
             this.btnBackToLoad.TabIndex = 11;
             this.btnBackToLoad.Text = "Back To Load Page";
             this.btnBackToLoad.UseVisualStyleBackColor = true;
+            this.btnBackToLoad.Click += new System.EventHandler(this.btnBackToLoad_Click);
             // 
             // btnContactDetails
             // 

@@ -35,6 +35,10 @@ namespace DataBrokerCleaning.Data
         //Company Geo Lng
         public  String CompanyGeoLng { get; set; }
 
+        public String CompanyName { get;set; }  
+
+        public String CompanyLogo { get;set; }
+
 
 
     }

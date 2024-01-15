@@ -86,6 +86,16 @@ namespace DataBrokerCleaning
                 geoLocation.CompanyGeoLat = Convert.ToString(row[CompanyGeoLat]);
                 geoLocation.CompanyGeoLng = Convert.ToString(row[CompanyGeoLng]);
             }
+            lblCompanyTimeZone.Text = geoLocation.CompanyTimeZone;
+            lblCompanyUtcOffset.Text = geoLocation.CompanyUtcOffset;    
+            lblCompanyGeoStreetNumber.Text = geoLocation.CompanyGeoStreetNumber;
+            lblCompanyGeoSubPremise.Text = geoLocation.CompanyGeoSubPremise;
+            lblCompanyGeoCity.Text = geoLocation.CompanyGeoCity;    
+            lblCompanyGeoPostalCode.Text = geoLocation.CompanyGeoPostalCode;
+            lblCompanyGeoStateCode.Text = geoLocation.CompanyGeoStateCode;  
+            lblCompanyGeoCountry.Text = geoLocation.CompanyGeoCountry;  
+            lblCompanyGeoLat.Text = geoLocation.CompanyGeoLat;  
+            lblCompanyGeoLng.Text = geoLocation.CompanyGeoLng;  
 
 
 

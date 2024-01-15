@@ -31,6 +31,7 @@
             this.imgCompanyLogo = new System.Windows.Forms.PictureBox();
             this.lblCompnayName = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgCompanyLogo)).BeginInit();
             this.panelTop.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,8 +92,18 @@
             this.panelTop.Size = new System.Drawing.Size(1768, 100);
             this.panelTop.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 100);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1768, 476);
+            this.panel1.TabIndex = 2;
+            // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.1119F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.8881F));
@@ -121,7 +133,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCompanyTimeZone, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(55, 113);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.27778F));
@@ -130,14 +143,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1658, 351);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1768, 476);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(387, 287);
+            this.label12.Location = new System.Drawing.Point(436, 409);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(186, 25);
@@ -148,7 +161,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 287);
+            this.label9.Location = new System.Drawing.Point(7, 409);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(186, 25);
@@ -159,7 +172,7 @@
             // 
             this.lblCompanyGeoLng.AutoSize = true;
             this.lblCompanyGeoLng.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoLng.Location = new System.Drawing.Point(1305, 287);
+            this.lblCompanyGeoLng.Location = new System.Drawing.Point(1412, 409);
             this.lblCompanyGeoLng.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoLng.Name = "lblCompanyGeoLng";
             this.lblCompanyGeoLng.Size = new System.Drawing.Size(192, 25);
@@ -170,7 +183,7 @@
             // 
             this.lblCompanyGeoLat.AutoSize = true;
             this.lblCompanyGeoLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoLat.Location = new System.Drawing.Point(853, 287);
+            this.lblCompanyGeoLat.Location = new System.Drawing.Point(957, 409);
             this.lblCompanyGeoLat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoLat.Name = "lblCompanyGeoLat";
             this.lblCompanyGeoLat.Size = new System.Drawing.Size(192, 25);
@@ -181,7 +194,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(387, 226);
+            this.label10.Location = new System.Drawing.Point(436, 345);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(232, 25);
@@ -192,7 +205,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 226);
+            this.label7.Location = new System.Drawing.Point(7, 345);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(232, 25);
@@ -203,7 +216,7 @@
             // 
             this.lblCompanyGeoCountryCode.AutoSize = true;
             this.lblCompanyGeoCountryCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoCountryCode.Location = new System.Drawing.Point(1305, 226);
+            this.lblCompanyGeoCountryCode.Location = new System.Drawing.Point(1412, 345);
             this.lblCompanyGeoCountryCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoCountryCode.Name = "lblCompanyGeoCountryCode";
             this.lblCompanyGeoCountryCode.Size = new System.Drawing.Size(290, 25);
@@ -214,7 +227,7 @@
             // 
             this.lblCompanyGeoCountry.AutoSize = true;
             this.lblCompanyGeoCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoCountry.Location = new System.Drawing.Point(853, 226);
+            this.lblCompanyGeoCountry.Location = new System.Drawing.Point(957, 345);
             this.lblCompanyGeoCountry.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoCountry.Name = "lblCompanyGeoCountry";
             this.lblCompanyGeoCountry.Size = new System.Drawing.Size(290, 25);
@@ -225,7 +238,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(387, 172);
+            this.label8.Location = new System.Drawing.Point(436, 288);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(274, 25);
@@ -236,7 +249,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 172);
+            this.label6.Location = new System.Drawing.Point(7, 288);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(274, 25);
@@ -247,7 +260,7 @@
             // 
             this.lblCompanyGeoStateCode.AutoSize = true;
             this.lblCompanyGeoStateCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoStateCode.Location = new System.Drawing.Point(1305, 172);
+            this.lblCompanyGeoStateCode.Location = new System.Drawing.Point(1412, 288);
             this.lblCompanyGeoStateCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoStateCode.Name = "lblCompanyGeoStateCode";
             this.lblCompanyGeoStateCode.Size = new System.Drawing.Size(274, 25);
@@ -258,7 +271,7 @@
             // 
             this.lblCompanyGeoPostalCode.AutoSize = true;
             this.lblCompanyGeoPostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoPostalCode.Location = new System.Drawing.Point(853, 172);
+            this.lblCompanyGeoPostalCode.Location = new System.Drawing.Point(957, 288);
             this.lblCompanyGeoPostalCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoPostalCode.Name = "lblCompanyGeoPostalCode";
             this.lblCompanyGeoPostalCode.Size = new System.Drawing.Size(265, 25);
@@ -269,7 +282,7 @@
             // 
             this.lblCompanyGeoSubPremise.AutoSize = true;
             this.lblCompanyGeoSubPremise.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoSubPremise.Location = new System.Drawing.Point(387, 109);
+            this.lblCompanyGeoSubPremise.Location = new System.Drawing.Point(436, 222);
             this.lblCompanyGeoSubPremise.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoSubPremise.Name = "lblCompanyGeoSubPremise";
             this.lblCompanyGeoSubPremise.Size = new System.Drawing.Size(279, 25);
@@ -280,7 +293,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 109);
+            this.label5.Location = new System.Drawing.Point(7, 222);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(279, 25);
@@ -291,7 +304,7 @@
             // 
             this.lblCompanyGeoCity.AutoSize = true;
             this.lblCompanyGeoCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoCity.Location = new System.Drawing.Point(1305, 109);
+            this.lblCompanyGeoCity.Location = new System.Drawing.Point(1412, 222);
             this.lblCompanyGeoCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoCity.Name = "lblCompanyGeoCity";
             this.lblCompanyGeoCity.Size = new System.Drawing.Size(194, 25);
@@ -302,7 +315,7 @@
             // 
             this.lbl81.AutoSize = true;
             this.lbl81.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl81.Location = new System.Drawing.Point(853, 109);
+            this.lbl81.Location = new System.Drawing.Point(957, 222);
             this.lbl81.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl81.Name = "lbl81";
             this.lbl81.Size = new System.Drawing.Size(194, 25);
@@ -313,7 +326,7 @@
             // 
             this.lblCompanyGeoStreetName.AutoSize = true;
             this.lblCompanyGeoStreetName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoStreetName.Location = new System.Drawing.Point(1305, 44);
+            this.lblCompanyGeoStreetName.Location = new System.Drawing.Point(1412, 92);
             this.lblCompanyGeoStreetName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoStreetName.Name = "lblCompanyGeoStreetName";
             this.lblCompanyGeoStreetName.Size = new System.Drawing.Size(276, 25);
@@ -324,7 +337,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(853, 44);
+            this.label4.Location = new System.Drawing.Point(957, 92);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(276, 25);
@@ -335,7 +348,7 @@
             // 
             this.lblCompanyGeoStreetNumber.AutoSize = true;
             this.lblCompanyGeoStreetNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyGeoStreetNumber.Location = new System.Drawing.Point(387, 44);
+            this.lblCompanyGeoStreetNumber.Location = new System.Drawing.Point(436, 92);
             this.lblCompanyGeoStreetNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyGeoStreetNumber.Name = "lblCompanyGeoStreetNumber";
             this.lblCompanyGeoStreetNumber.Size = new System.Drawing.Size(295, 25);
@@ -346,7 +359,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 44);
+            this.label3.Location = new System.Drawing.Point(7, 92);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(295, 25);
@@ -357,7 +370,7 @@
             // 
             this.lblCompanyUtcOffset.AutoSize = true;
             this.lblCompanyUtcOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyUtcOffset.Location = new System.Drawing.Point(1305, 0);
+            this.lblCompanyUtcOffset.Location = new System.Drawing.Point(1412, 3);
             this.lblCompanyUtcOffset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyUtcOffset.Name = "lblCompanyUtcOffset";
             this.lblCompanyUtcOffset.Size = new System.Drawing.Size(206, 25);
@@ -368,7 +381,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(853, 0);
+            this.label1.Location = new System.Drawing.Point(957, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(206, 25);
@@ -379,7 +392,7 @@
             // 
             this.lblCompanyTimeZone.AutoSize = true;
             this.lblCompanyTimeZone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyTimeZone.Location = new System.Drawing.Point(387, 0);
+            this.lblCompanyTimeZone.Location = new System.Drawing.Point(436, 3);
             this.lblCompanyTimeZone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyTimeZone.Name = "lblCompanyTimeZone";
             this.lblCompanyTimeZone.Size = new System.Drawing.Size(213, 25);
@@ -390,7 +403,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 0);
+            this.label2.Location = new System.Drawing.Point(7, 3);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(213, 25);
@@ -402,7 +415,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1768, 576);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
             this.Name = "CompanyGeoDetails";
             this.Text = "CompanyGeoDetails";
@@ -410,6 +423,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgCompanyLogo)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -421,6 +435,7 @@
         private System.Windows.Forms.PictureBox imgCompanyLogo;
         private System.Windows.Forms.Label lblCompnayName;
         private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;

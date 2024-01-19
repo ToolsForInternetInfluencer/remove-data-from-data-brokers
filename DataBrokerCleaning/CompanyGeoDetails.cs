@@ -30,7 +30,7 @@ namespace DataBrokerCleaning
             //Company Time Zone
             String CompanyTimeZone = "Company Time Zone";
             //Company Utc Offset
-            String CompanyUtcOffset = "CompanyUtcOffset";
+            String CompanyUtcOffset = "Company Utc Offset";
             //Company Geo Street Number
             String CompanyGeoStreetNumber = "Company Geo Street Number";
             //Company Geo Street Name

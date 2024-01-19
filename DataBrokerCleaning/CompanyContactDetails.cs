@@ -56,7 +56,9 @@ namespace DataBrokerCleaning
 
         private void btnGeoLocation_Click(object sender, EventArgs e)
         {
-
+            CompanyGeoDetails cgd = new CompanyGeoDetails(this.id);
+            
+            cgd.Show();
         }
     }
 }

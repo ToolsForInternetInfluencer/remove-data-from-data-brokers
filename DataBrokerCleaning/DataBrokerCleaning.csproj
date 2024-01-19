@@ -114,6 +114,9 @@
     <EmbeddedResource Include="CompanyContactDetails.resx">
       <DependentUpon>CompanyContactDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CompanyFinaces.resx">
+      <DependentUpon>CompanyFinaces.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CompanyGeoDetails.resx">
       <DependentUpon>CompanyGeoDetails.cs</DependentUpon>
     </EmbeddedResource>

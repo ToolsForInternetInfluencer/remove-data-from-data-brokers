@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBrokerDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Data\CompanyFinances.cs" />
     <Compile Include="Data\CompanyGeoLocation.cs" />
     <Compile Include="Data\CompanyIntro.cs" />
     <Compile Include="DataLoadForm.cs">

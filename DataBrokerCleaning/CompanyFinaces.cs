@@ -98,20 +98,31 @@ namespace DataBrokerCleaning
                 cf.CompanyTech = Convert.ToString(row[CompanyTech]);
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+            lblHealth.Text = cf.Health;
+            lblCompanyUrl.Text = cf.CompanyUrl;
+            lblCompanyCategorySector.Text = cf.CompanyCategorySector;
+            lblCompanyCategoryIndustryGroup.Text = cf.CompanyCategoryIndustryGroup;
+            lblCompanyCategoryIndustry.Text =cf.CompanyCategoryIndustry;
+            lblCompanyCategorySubIndustry.Text = cf.CompanyCategorySubIndustry;
+            lblCompanyCategorySicCode.Text = cf.CompanyCategorySicCode;
+            lblCompanyCategoryNaicsCode.Text = cf.CompanyCategoryNaicsCode;
+            lblCompanyTags.Text = cf.CompanyTags;
+            lblCompanyType.Text = cf.CompanyType;
+            lblCompanyTicker.Text = cf.CompanyTicker;
+            lblCompanyMetricsEmployees.Text = cf.CompanyMetricsEmployees;
+            lblCompanyMetricsEmployeesRange.Text = cf.CompanyMetricsEmployeesRange;
+            lblCompanyMetricsMarketCap.Text = cf.CompanyMetricsMarketCap;
+            lblCompanyMetricsRaised.Text = cf.CompanyMetricsRaised;
+            lblCompanyMetricsAnnualRevenue.Text = cf.CompanyMetricsAnnualRevenue;
+            lblCompanyMetricsEstimatedAnnualRevenue.Text = cf.CompanyMetricsEstimatedAnnualRevenue;
+            lblCompanyMetricsFiscalYearEnd.Text = cf.CompanyMetricsFiscalYearEnd;
+            lblCompanyTech.Text = cf.CompanyTech;
 
             }
+
+        private void btnCompanyContact_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

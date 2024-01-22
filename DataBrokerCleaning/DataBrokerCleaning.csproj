@@ -121,6 +121,9 @@
     <EmbeddedResource Include="CompanyGeoDetails.resx">
       <DependentUpon>CompanyGeoDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CompanySocial.resx">
+      <DependentUpon>CompanySocial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataLoadForm.resx">
       <DependentUpon>DataLoadForm.cs</DependentUpon>
     </EmbeddedResource>

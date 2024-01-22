@@ -14,3 +14,5 @@ E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBr
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.CompanyIntroForm.resources
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.CompanyContactDetails.resources
 E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.CompanyGeoDetails.resources
+E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.CompanyFinaces.resources
+E:\Data-Broker\remove-data-from-data-brokers\DataBrokerCleaning\obj\Debug\DataBrokerCleaning.CompanySocial.resources

@@ -109,5 +109,11 @@ namespace DataBrokerCleaning
             imgCompanyLogo.Load(geoLocation.CompanyLogo);
             lblCompanyGeoState.Text = geoLocation.CompanyGeoState;
         }
+
+        private void btnCompanyFinances_Click(object sender, EventArgs e)
+        {
+            CompanyFinaces cf = new CompanyFinaces(this.id);
+            cf.Show();
+        }
     }
 }

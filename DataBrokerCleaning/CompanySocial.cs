@@ -16,5 +16,26 @@ namespace DataBrokerCleaning
         {
             InitializeComponent();
         }
+
+        private void CompanySocial_Load(object sender, EventArgs e)
+        {
+            /*
+             Company Facebook Handle
+Company Linkedin Handle
+Company Twitter Handle
+Company Twitter Id
+Company Twitter Bio
+Company Twitter Location
+Company Twitter Site
+Company Twitter Avatar
+Company Crunchbase Handle
+
+
+
+
+
+
+             */
+        }
     }
 }

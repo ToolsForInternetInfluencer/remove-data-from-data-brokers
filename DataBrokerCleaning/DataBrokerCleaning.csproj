@@ -103,6 +103,7 @@
     <Compile Include="DataLoadForm.Designer.cs">
       <DependentUpon>DataLoadForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\CompanySocialData.cs" />
     <Compile Include="Data\CompnayContactDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

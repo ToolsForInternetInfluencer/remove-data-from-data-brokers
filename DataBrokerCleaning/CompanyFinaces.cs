@@ -124,5 +124,12 @@ namespace DataBrokerCleaning
         {
 
         }
+
+        private void btnCompanyFinances_Click(object sender, EventArgs e)
+        {
+            CompanySocial cs = new CompanySocial(this.id);
+            cs.Show();
+
+        }
     }
 }

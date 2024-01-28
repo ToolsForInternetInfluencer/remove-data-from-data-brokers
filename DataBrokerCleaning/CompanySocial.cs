@@ -24,7 +24,7 @@ namespace DataBrokerCleaning
         }
 
         private void CompanySocial_Load(object sender, EventArgs e)
-        { 
+        {
 
             String CompanyFacebookHandle = "Company Facebook Handle";
             String CompanyLinkedinHandle = "Company Linkedin Handle";
@@ -57,6 +57,16 @@ namespace DataBrokerCleaning
                 csd.CompanyCrunchbaseHandle = Convert.ToString(row[CompanyCrunchbaseHandle]);
             }
 
+            lblCompanyFacebookHandle.Text = csd.CompanyFacebookHandle;
+            lblCompanyLinkedinHandle.Text  = csd.CompanyLinkedinHandle;
+            lblCompanyTwitterHandle.Text = csd.CompanyTwitterHandle;
+            lblCompanyTwitterId.Text = csd.CompanyTwitterId;
+            lblCompanyTwitterBio.Text = csd.CompanyTwitterBio;
+            lblCompanyTwitterLocation.Text = csd.CompanyTwitterLocation;
+            lblCompanyTwitterSite.Text = csd.CompanyTwitterSite;
+            lblCompanyCrunchbaseHandle.Text= csd.CompanyCrunchbaseHandle;
+
 
         }
+    }
 }
